@@ -1,5 +1,5 @@
 #include "vertex.h"
 
-typedef struct Vertex{
-
-}
+// typedef struct Vertex{
+// 
+// }

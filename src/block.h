@@ -1,8 +1,5 @@
 #ifndef BLOCK_H_
 #define BLOCK_H_
-#include "avl_tree.h"
-#include "block.h"
-#include "hash_table.h"
 #include <stdio.h>
 typedef void *Block_t;
 
@@ -26,7 +23,7 @@ void print_block(Block_t block_, FILE *svgFile);
  * remover a quadra, um parametro do tipo void* que pode ser uma string (cep) ou um vetor[2] do tipo double (ponto)
  * Pós:
  */
-void remove_block(HashTable_t hashTable, AvlTree_t _tree, void(*remover)(void*, void*, void*, int), void *parameter);
+// void remove_block(HashTable_t hashTable, AvlTree_t _tree, void(*remover)(void*, void*, void*, int), void *parameter);
 
 /*
  * Imprime os dados de uma quadra em um arquivo txt

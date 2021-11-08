@@ -1,0 +1,17 @@
+/CMakeLists.txt
+/cmake-build-debug/
+/.idea
+*.o
+/cmake-build-wsl/
+/cmake-build-wsl-coverage/
+/cmake-build-debug---mingw/
+/cmake-build-release-wsl/
+/cmake-build-release---mingw/
+/cmake-build-default-wsl/
+/cmake-build-debug-wsl/
+t2
+
+.cache/clangd/index
+vgcore.149129
+compile_commands.json
+src/.cache/clangd/index

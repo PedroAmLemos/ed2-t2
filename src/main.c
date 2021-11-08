@@ -55,7 +55,6 @@ int main(int argc, char *argv[]){
         i++;
     }
     read(entryPath, geo, qry, outPath, via);
-    printf("%s\n%s\n%s\n%s\n%s\n", entryPath, outPath, geo, qry, via);
 
 
     free(geo);

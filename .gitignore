@@ -12,6 +12,6 @@
 t2
 
 .cache/clangd/index
-vgcore.149129
+vgcore.*
 compile_commands.json
 src/.cache/clangd/index

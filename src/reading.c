@@ -12,10 +12,8 @@ void read(char *entryPath, char *geo, char *qry, char *outPath, char *via){
     char *geoName = NULL; // only geo name
     char *geoPath = NULL; // path to geo							   ---> arquivo de entrada
     char *geoSVG  = NULL; // out path + geo name + svg				   ---> arquivo de saida
-    char *geoTXT  = NULL;
     FILE *geoFile = NULL;
     FILE *geoSVGFile = NULL;
-    FILE *geoTXTFile = NULL;
 
     /* ---VIA--- */
     char *viaPath = NULL;
@@ -61,11 +59,6 @@ void read(char *entryPath, char *geo, char *qry, char *outPath, char *via){
     strcat(geoSVG, ".svg");
     geoSVGFile = fopen(geoSVG, "w"); // mudar para uma funcao que cria tag
 
-    geoTXT = malloc(sizeof(char*)*(strlen(outPathGEO)+5));
-    strcpy(geoTXT, outPathGEO);
-    strcat(geoTXT, ".txt");
-    geoTXTFile = fopen(geoTXT, "w");
-
     if(qryPath){
         qryFile = fopen(qryPath, "r");
         // QRY SVG == OUTPATHGEO + '-' + QRYNAME . SVG
@@ -86,7 +79,7 @@ void read(char *entryPath, char *geo, char *qry, char *outPath, char *via){
         viaFile = fopen(viaPath, "r");
     }
 
-    main_treatment(geoFile, qryFile, viaFile, geoSVGFile, geoTXTFile, qrySVGFile, qryTXTFile);
+    main_treatment(geoFile, qryFile, viaFile, geoSVGFile, qrySVGFile, qryTXTFile);
 
     /* ---Free mallocs and closing files--*/
     free(geoName);
@@ -95,7 +88,6 @@ void read(char *entryPath, char *geo, char *qry, char *outPath, char *via){
     free(geoSVG);
     fclose(geoFile);
     fclose(geoSVGFile);
-    fclose(geoTXTFile);
 
     if(qryPath){
         free(qryName);

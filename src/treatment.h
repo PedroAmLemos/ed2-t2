@@ -3,6 +3,6 @@
 #include <stdio.h>
 
 // geoFile, qryFile, geoSVGFile, qrySVGFile, qryTXTFile, viaFile,
-void main_treatment(FILE *geoFile, FILE *qryFile, FILE *viaFile, FILE *geoSVGFile, FILE *geoTXTFile, FILE *qrySVGFile, FILE * qryTXTFile);
+void main_treatment(FILE *geoFile, FILE *qryFile, FILE *viaFile, FILE *geoSVGFile, FILE *qrySVGFile, FILE * qryTXTFile);
 
 #endif

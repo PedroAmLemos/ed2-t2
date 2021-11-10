@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <string.h>
+#include "city.h"
+#include "qry.h"
 #include "svg.h"
 #include "treatment.h"
 #include "kdtree.h"
@@ -9,8 +11,9 @@
 void main_treatment(FILE *geoFile, FILE *qryFile, FILE *viaFile, FILE *geoSVGFile, FILE *qrySVGFile, FILE *qryTXTFile){
     double x = 0, y = 0, w = 0, h = 0, point[2]; 
     char aux[5], cep[200], cfill[200], cstrk[200], sw[200];
-    Block_t block;
-    KDTree_t blocks_tree = create_kd_tree();
+    Block_t block = NULL;
+    City_t city = create_city();
+    KDTree_t blocks_tree = get_blocks_tree(city);
 
 
     while(fscanf(geoFile, "%s", aux)!=EOF){
@@ -48,7 +51,10 @@ void main_treatment(FILE *geoFile, FILE *qryFile, FILE *viaFile, FILE *geoSVGFil
         }
     }
 
+    if(qryFile){
+        qry_treat(city, qryFile, qrySVGFile, qryTXTFile);
+    }
 
 
-    delete_kd(blocks_tree);
+    delete_city(city);
 }

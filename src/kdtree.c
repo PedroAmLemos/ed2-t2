@@ -4,7 +4,7 @@
 #include <math.h>
 
 typedef struct KDTreeNode{
-    Info_t info;
+    ListInfo_t info;
     // 0 para x e 1 para y
     int cd;
     double key[2];
@@ -17,8 +17,8 @@ typedef struct KDTree {
     int size;
 }KDTree;
 
-void insert_right(KDTreeNode *node, Info_t info, double key[2]);
-void insert_left(KDTreeNode_t node, Info_t info, double key[2]);
+void insert_right(KDTreeNode *node, ListInfo_t info, double key[2]);
+void insert_left(KDTreeNode_t node, ListInfo_t info, double key[2]);
 
 KDTree_t create_kd_tree(){
     KDTree *new = (KDTree *) malloc(sizeof(KDTree));
@@ -29,7 +29,7 @@ KDTree_t create_kd_tree(){
     return new;
 }
 
-void insert_right(KDTreeNode *node, Info_t info, double key[2]){
+void insert_right(KDTreeNode *node, ListInfo_t info, double key[2]){
     KDTreeNode *aux = (KDTreeNode *) node;
 
     if(aux->right == NULL){
@@ -56,7 +56,7 @@ void insert_right(KDTreeNode *node, Info_t info, double key[2]){
     }
 }
 
-void insert_left(KDTreeNode_t node, Info_t info, double key[2]){
+void insert_left(KDTreeNode_t node, ListInfo_t info, double key[2]){
     KDTreeNode *aux = (KDTreeNode *) node;
 
     if(aux->left == NULL){
@@ -83,7 +83,7 @@ void insert_left(KDTreeNode_t node, Info_t info, double key[2]){
 
 }
 
-void insert_kd(KDTree_t _tree, Info_t info, double key[2]){
+void insert_kd(KDTree_t _tree, ListInfo_t info, double key[2]){
     KDTree *tree = (KDTree *) _tree;
 
     if(tree->root == NULL){
@@ -224,7 +224,7 @@ KDTreeNode_t find_node(KDTreeNode_t _node, double key[2]){
     }
 }
 
-Info_t get_kd_node_info_from_key(KDTree_t _tree, double key[2]){
+ListInfo_t get_kd_node_info_from_key(KDTree_t _tree, double key[2]){
     KDTree *tree = (KDTree *) _tree;
 
     KDTreeNode *node = find_node(tree->root, key);
@@ -236,7 +236,7 @@ Info_t get_kd_node_info_from_key(KDTree_t _tree, double key[2]){
     return NULL;
 }
 
-Info_t get_kd_node_info(KDTreeNode_t _node){
+ListInfo_t get_kd_node_info(KDTreeNode_t _node){
     KDTreeNode *node = (KDTreeNode *) _node;
 
     return node->info;
@@ -272,7 +272,7 @@ int get_kd_dim(KDTreeNode_t _node){
     return node->cd;
 }
 
-void get_inside_aux(List_t _list, KDTreeNode_t _root, double x, double y, double w, double h){
+void get_points_inside_aux(List_t _list, KDTreeNode_t _root, double x, double y, double w, double h){
     KDTreeNode *root = (KDTreeNode *) _root;
 
     if(_root == NULL){
@@ -284,7 +284,7 @@ void get_inside_aux(List_t _list, KDTreeNode_t _root, double x, double y, double
             double *aux = malloc(2*(sizeof(double)));
             aux[0] = root->key[0];
             aux[1] = root->key[1];
-            insert_list(_list , aux);
+            insert_list(_list, aux);
         }
     }
 
@@ -292,18 +292,18 @@ void get_inside_aux(List_t _list, KDTreeNode_t _root, double x, double y, double
     double key_aux2[2] = {x+w, y+h};
 
     if(key_aux2[root->cd] >= root->key[root->cd]){
-        get_inside_aux(_list, root->right, x, y, w, h);
+        get_points_inside_aux(_list, root->right, x, y, w, h);
     }
     if(key_aux[root->cd] <= root->key[root->cd]){
-        get_inside_aux(_list, root->left, x, y, w, h);
+        get_points_inside_aux(_list, root->left, x, y, w, h);
     }
 }
 
-List_t get_inside_kd(KDTree_t _tree, double x, double y, double w, double h){
+List_t get_points_inside_kd(KDTree_t _tree, double x, double y, double w, double h){
     KDTree *tree = (KDTree *) _tree;
 
     List_t list = create_list();
-    get_inside_aux(list, tree->root, x, y, w, h);
+    get_points_inside_aux(list, tree->root, x, y, w, h);
 
     return list;
 }
@@ -335,3 +335,38 @@ double* get_kd_max(KDTreeNode_t _root){
 
     return root->key;
 }
+
+
+void get_info_inside_aux(List_t _list, KDTreeNode_t _root, double x, double y, double w, double h){
+    KDTreeNode *root = (KDTreeNode *) _root;
+
+    if(_root == NULL){
+        return;
+    }
+
+    if(root->key[0] >= x && root->key[0] <= (x + w)){
+        if(root->key[1] >= y && root->key[1] <= (y + h)){
+            insert_list(_list, get_kd_node_info(root));
+        }
+    }
+
+    double key_aux[2] = {x, y};
+    double key_aux2[2] = {x+w, y+h};
+
+    if(key_aux2[root->cd] >= root->key[root->cd]){
+        get_info_inside_aux(_list, root->right, x, y, w, h);
+    }
+    if(key_aux[root->cd] <= root->key[root->cd]){
+        get_info_inside_aux(_list, root->left, x, y, w, h);
+    }
+}
+
+List_t get_info_inside_kd(KDTree_t _tree, double x, double y, double w, double h){
+    KDTree *tree = (KDTree *) _tree;
+
+    List_t list = create_list();
+    get_info_inside_aux(list, tree->root, x, y, w, h);
+
+    return list;
+}
+

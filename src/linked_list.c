@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 typedef struct Node{
-    Info_t info;
+    ListInfo_t info;
     struct Node *next;
     struct Node *prev;
 }Node;
@@ -22,7 +22,7 @@ List_t create_list(){
     return list;
 }
 
-void insert_list(List_t _list, Info_t _info){
+void insert_list(List_t _list, ListInfo_t _info){
     List *list = (List*) _list;
     Node *node  = (Node*) malloc(sizeof(Node));
     node->info  = _info;
@@ -38,7 +38,7 @@ void insert_list(List_t _list, Info_t _info){
     list->size++;
 }
 
-void remove_list_node(List_t list_, Node_t node_, void (*remove)(void*)){
+void remove_list_node(List_t list_, ListNode_t node_, void (*remove)(void*)){
     List *list = (List*) list_;
     Node *node = (Node*) node_;
 
@@ -72,17 +72,17 @@ void remove_list(List_t _list, void(*remove)(void*)){
     free(list);
 }
 
-Node_t get_list_first(List_t list_){
+ListNode_t get_list_first(List_t list_){
     List *list = (List*) list_;
     return list->first;
 }
 
-Node_t get_list_next(Node_t node_){
+ListNode_t get_list_next(ListNode_t node_){
     Node *list = (Node*) node_;
     return list->next;
 }
 
-Info_t get_list_info(Node_t node_){
+ListInfo_t get_list_info(ListNode_t node_){
     Node *list = (Node*) node_;
 
     return list->info;

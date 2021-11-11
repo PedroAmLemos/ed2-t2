@@ -1,10 +1,37 @@
 #ifndef GRAPH_H_
 #define GRAPH_H_
+#include "linked_list.h"
+#include "vertex.h"
+#include "edge.h"
 
 
 typedef void* Graph_t;
-typedef void* Edge_t;
 typedef void* AdjList_t;
+
+
+Graph_t create_graph();
+
+Vertex_t get_graph_vertex(AdjList_t _adj_list);
+
+List_t get_graph_edges(AdjList_t _adj);
+
+AdjList_t get_graph_adj_list(Graph_t _graph, char* vertex_name);
+
+void add_graph_vertex(Graph_t _graph, Vertex_t _vertex);
+
+void add_graph_edge(Graph_t _graph, Edge_t _edge);
+
+void delete_adj_list(AdjList_t _adj);
+
+void delete_graph(Graph_t _graph);
+
+void delete_full_graph(Graph_t _graph);
+
+
+
+
+
+
 
 
 

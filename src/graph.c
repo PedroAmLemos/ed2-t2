@@ -1,9 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "graph.h"
-#include "edge.h"
-#include "linked_list.h"
-#include "vertex.h"
 
 typedef struct AdjList{
     Vertex_t start;
@@ -14,9 +11,9 @@ Graph_t create_graph(){
     return create_list();
 }
 
-Vertex_t get_graph_vertex(AdjList_t _adj){
-    AdjList *al = (AdjList*)_adj;
-    return al->start;
+Vertex_t get_graph_vertex(AdjList_t _adj_list){
+    AdjList *adj_list = (AdjList*)_adj_list;
+    return adj_list->start;
 }
 
 List_t get_graph_edges(AdjList_t _adj){
@@ -62,6 +59,12 @@ void delete_graph(Graph_t _graph){
     remove_list(_graph, NULL);
 }
 
+void delete_full_graph(Graph_t _graph){
+    for(ListNode_t node = get_list_first(_graph); node != NULL; node = get_list_next(node)){
+        delete_adj_list(get_list_info(node));
+    }
+    delete_graph(_graph);
+}
 
 
 

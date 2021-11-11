@@ -1,5 +1,6 @@
-#include "svg.h"
 #include <stdio.h>
+#include "svg.h"
+#include "vertex.h"
 
 void open_svg(FILE *svgFile){
     fprintf(svgFile, "<!-- Pedro Antonio Messias Lemos -->\n");
@@ -38,4 +39,9 @@ void print_rectangle_dashed(double x, double y, double w, double h, FILE *svgFil
 
 void print_rectangle(double x, double y, double w, double h, char *fill, char *stroke, FILE *svgFile){
     fprintf(svgFile,"\t<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" opacity=\"0.8\" fill=\"%s\" stroke=\"%s\" stroke-width=\"3px\" />\n", x, y, w, h, fill, stroke);
+}
+
+void print_vertex(Vertex_t _vertex, char* vertex_color, FILE* svg_file){
+    fprintf(svg_file, "\n\t<circle cx=\"%f\" cy=\"%f\" r=\"10\" stroke=\"%s\" fill=\"white\" stroke-width=\"0.5\" />", get_vertex_x(_vertex), get_vertex_y(_vertex), vertex_color);
+    fprintf(svg_file, "\n\t<text x=\"%f\" y=\"%f\" text-anchor=\"middle\" font-size=\"0.13em\">%s</text>", get_vertex_x(_vertex), get_vertex_y(_vertex), get_vertex_name(_vertex));
 }

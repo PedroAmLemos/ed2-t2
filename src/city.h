@@ -27,8 +27,10 @@ void delete_city(City_t _city);
 */
 void insert_city_blocks_tree(City_t  _city, KDTree_t _blocks_tree);
 void insert_city_street_graph(City_t _city, Graph_t _street_graph);
+void insert_city_verterx_tree(City_t _city, KDTree_t _vertex_tree);
 KDTree_t get_blocks_tree(City_t _city);
 Graph_t get_street_graph(City_t _city);
+KDTree_t get_vertex_tree(City_t _city);
 
 
 #endif //CITY_H_

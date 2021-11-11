@@ -188,24 +188,27 @@ void remove_kd_node(KDTree_t tree, double key[2]){
 
 }
 
-void remove_kd_all(KDTreeNode_t _node){
+void remove_kd_all(KDTreeNode_t _node, int flag){
     KDTreeNode *node = (KDTreeNode *) _node;
 
     if(node->left != NULL){
-        remove_kd_all(node->left);
+        remove_kd_all(node->left, flag);
     }
     if(node->right != NULL){
-        remove_kd_all(node->right);
+        remove_kd_all(node->right, flag);
     }
-    free(node->info);
+    if(flag){
+        free(node->info);
+
+    }
     free(node);
 }
 
-void delete_kd(KDTree_t _tree){
+void delete_kd(KDTree_t _tree, int flag){
     KDTree *tree = (KDTree *) _tree;
 
     if(tree->root != NULL){
-        remove_kd_all(tree->root);
+        remove_kd_all(tree->root, flag);
     }
     free(tree);
 }

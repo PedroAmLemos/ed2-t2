@@ -30,4 +30,7 @@ void catac(City_t _city, double x, double y, double w, double h, FILE *qrySVGFil
 
 
 
+
+
+
 }

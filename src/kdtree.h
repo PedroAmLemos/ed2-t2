@@ -17,7 +17,7 @@ void insert_kd(KDTree_t _tree, KDTreeInfo_t info, double key[2]);
 void remove_kd_node(KDTree_t tree, double key[2]);
 
 // Desaloca toda a árvore kd e suas infos
-void delete_kd(KDTree_t _tree);
+void delete_kd(KDTree_t _tree, int flag);
 
 // Retorna info de um node passado
 KDTreeInfo_t get_kd_node_info(KDTreeNode_t _node);

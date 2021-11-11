@@ -15,6 +15,7 @@ void main_treatment(FILE *geoFile, FILE *qryFile, FILE *viaFile, FILE *geoSVGFil
     Block_t block = NULL;
     City_t city = create_city();
     KDTree_t blocks_tree = get_blocks_tree(city);
+    KDTree_t vertex_tree = get_vertex_tree(city);
     Graph_t street_graph = get_street_graph(city);
     Vertex_t vertex = NULL;
     Edge_t edge = NULL;
@@ -39,15 +40,17 @@ void main_treatment(FILE *geoFile, FILE *qryFile, FILE *viaFile, FILE *geoSVGFil
 
 
     if(viaFile){
-    
         char id[200], ldir[200], lesq[200], name[200], i[200], j[200];
-        double cmp, vm;
+        double cmp, vm, point[2];
         x = 0, y = 0;
         while(fscanf(viaFile, "%s", aux)!=EOF){
             if((strcmp(aux, "v"))==0){
                 fscanf(viaFile, "%s %lf %lf", id, &x, &y);
                 vertex = create_vertex(id, x, y);
                 add_graph_vertex(street_graph, vertex);
+                point[0] = x;
+                point[1] = y;
+                insert_kd(vertex_tree, vertex, point);
                 // criar e armazenar o vertice;
             }
             if((strcmp(aux, "e"))==0){

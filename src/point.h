@@ -15,4 +15,6 @@ void set_point_y(Point_t _point, double y);
 
 void assign_point(Point_t _a, Point_t _b);
 
+int is_pont_inside_rect(Point_t _point, double x, double y, double w, double h);
+
 #endif

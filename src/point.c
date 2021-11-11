@@ -38,3 +38,10 @@ void assign_point(Point_t _a, Point_t _b){
     Point *b = (Point*) _b;
     *a = *b;
 }
+
+int is_pont_inside_rect(Point_t _point, double x, double y, double w, double h){
+    Point *point = (Point*) _point;
+    double point_x = point->x;
+    double point_y = point->y;
+    return point_x > x && point_x < x+w && point_y > y && point_y < y+h;
+}

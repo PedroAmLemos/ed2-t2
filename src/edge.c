@@ -15,7 +15,7 @@ typedef struct Edge{
     double vm;
 }Edge;
 
-Edge_t createAresta(char* name, char* begin_vertex_name, char* end_vertex_name, char* ldir, char* lesq, double cmp, double vm){
+Edge_t create_edge(char* name, char* begin_vertex_name, char* end_vertex_name, char* ldir, char* lesq, double cmp, double vm){
     Edge* edge = (Edge*) malloc(sizeof(Edge));
     strcpy(edge->begin_vertex_name, begin_vertex_name);
     strcpy(edge->end_vertex_name, end_vertex_name);

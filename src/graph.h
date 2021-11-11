@@ -17,6 +17,8 @@ List_t get_graph_edges(AdjList_t _adj);
 
 AdjList_t get_graph_adj_list(Graph_t _graph, char* vertex_name);
 
+ListNode_t get_graph_node(Graph_t _graph, char* vertex_name);
+
 void add_graph_vertex(Graph_t _graph, Vertex_t _vertex);
 
 void add_graph_edge(Graph_t _graph, Edge_t _edge);

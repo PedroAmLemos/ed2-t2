@@ -31,6 +31,16 @@ AdjList_t get_graph_adj_list(Graph_t _graph, char* vertex_name){
     return NULL;
 }
 
+ListNode_t get_graph_node(Graph_t _graph, char* vertex_name){
+    for(ListNode_t node = get_list_first(_graph); node != NULL; node = get_list_next(node)){
+        AdjList* al = get_list_info(node);
+        if(strcmp(vertex_name, get_vertex_name(al->start)) == 0){
+            return node;
+        }
+    }
+    return NULL;
+}
+
 void add_graph_vertex(Graph_t _graph, Vertex_t _vertex){
     AdjList *adj = (AdjList *) malloc(sizeof(AdjList));
     adj->start = _vertex;

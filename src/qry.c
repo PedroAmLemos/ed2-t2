@@ -8,8 +8,10 @@
 
 void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
     char aux[5];
-    // cep[25], cpf[20], side, compl[25], id[50], dmptFilename[50];
+    // char cep[25], cpf[20], side, compl[25], id[50], dmptFilename[50];
     double x, y, w, h;
+    char cep[200], face;
+    int num;
 
     open_svg(qrySVGFile);
 
@@ -18,6 +20,11 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
             fscanf(qryFile, "%lf %lf %lf %lf", &x, &y, &w, &h);
             fprintf(qryTXTFile, "catac\n");
             catac(city, x, y, w, h, qrySVGFile, qryTXTFile);
+            fprintf(qryTXTFile, "\n\n");
+        }
+        if(strcmp(aux, "@o?") == 0){
+            fscanf(qryFile, "%s %s %d", cep, &face, &num);
+            fprintf(qryTXTFile, "@o?\n");
             fprintf(qryTXTFile, "\n\n");
         }
     }

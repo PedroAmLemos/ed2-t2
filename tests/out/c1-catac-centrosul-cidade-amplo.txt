@@ -1,0 +1,27 @@
+catac
+Quadra removida
+cep: b03.8
+ponto: x = 1040.00, y = 285.00
+largura = 120.00, altura = 80.00
+espessura da borda: 1.0px, cor de preenchimento: tan, cor da borda: MediumAquamarine
+
+Quadra removida
+cep: b04.8
+ponto: x = 1040.00, y = 380.00
+largura = 120.00, altura = 80.00
+espessura da borda: 1.0px, cor de preenchimento: tan, cor da borda: MediumAquamarine
+
+Quadra removida
+cep: b03.7
+ponto: x = 905.00, y = 285.00
+largura = 120.00, altura = 80.00
+espessura da borda: 1.0px, cor de preenchimento: tan, cor da borda: MediumAquamarine
+
+Quadra removida
+cep: b04.7
+ponto: x = 905.00, y = 380.00
+largura = 120.00, altura = 80.00
+espessura da borda: 1.0px, cor de preenchimento: tan, cor da borda: MediumAquamarine
+
+
+

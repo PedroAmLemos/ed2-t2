@@ -1,6 +1,7 @@
 #ifndef CITY_H_
 #define CITY_H_
 #include "kdtree.h"
+#include "graph.h"
 #include <stdio.h>
 
 typedef void *City_t;
@@ -24,8 +25,10 @@ void delete_city(City_t _city);
  * Pré: Objeto.
  * Pós: Atributo especificado.
 */
-void insert_city_blocks_table(City_t  _city, KDTree_t _blocks_tree);
+void insert_city_blocks_tree(City_t  _city, KDTree_t _blocks_tree);
+void insert_city_street_graph(City_t _city, Graph_t _street_graph);
 KDTree_t get_blocks_tree(City_t _city);
+Graph_t get_street_graph(City_t _city);
 
 
 #endif //CITY_H_

@@ -1,5 +1,6 @@
 #ifndef GRAPH_H_
 #define GRAPH_H_
+#include <stdio.h>
 #include "linked_list.h"
 #include "vertex.h"
 #include "edge.h"
@@ -28,15 +29,5 @@ void delete_adj_list(AdjList_t _adj);
 void delete_graph(Graph_t _graph);
 
 void delete_full_graph(Graph_t _graph);
-
-
-
-
-
-
-
-
-
-
 
 #endif

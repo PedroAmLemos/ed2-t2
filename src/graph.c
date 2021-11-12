@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+#include "edge.h"
 #include "graph.h"
 
 typedef struct AdjList{
@@ -75,11 +76,4 @@ void delete_full_graph(Graph_t _graph){
     }
     delete_graph(_graph);
 }
-
-
-
-
-
-
-
-
+//TODO fazer copia grafo

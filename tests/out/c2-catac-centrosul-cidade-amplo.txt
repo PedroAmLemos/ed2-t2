@@ -1,0 +1,543 @@
+catac
+Quadra removida
+cep: B32-15.7
+ponto: x = 4915.00, y = 1435.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-15.8
+ponto: x = 5025.00, y = 1435.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-15.9
+ponto: x = 5135.00, y = 1435.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-15.10
+ponto: x = 5245.00, y = 1435.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-15.11
+ponto: x = 5355.00, y = 1435.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-15.12
+ponto: x = 5465.00, y = 1435.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-15.13
+ponto: x = 5575.00, y = 1435.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-15.14
+ponto: x = 5685.00, y = 1435.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-15.15
+ponto: x = 5795.00, y = 1435.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-15.16
+ponto: x = 5905.00, y = 1435.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-14.7
+ponto: x = 4915.00, y = 1350.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-14.8
+ponto: x = 5025.00, y = 1350.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-14.9
+ponto: x = 5135.00, y = 1350.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-14.10
+ponto: x = 5245.00, y = 1350.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-14.11
+ponto: x = 5355.00, y = 1350.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-14.12
+ponto: x = 5465.00, y = 1350.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-14.13
+ponto: x = 5575.00, y = 1350.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-14.14
+ponto: x = 5685.00, y = 1350.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-14.15
+ponto: x = 5795.00, y = 1350.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-14.16
+ponto: x = 5905.00, y = 1350.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-13.7
+ponto: x = 4915.00, y = 1265.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-13.8
+ponto: x = 5025.00, y = 1265.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-13.9
+ponto: x = 5135.00, y = 1265.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-13.10
+ponto: x = 5245.00, y = 1265.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-13.11
+ponto: x = 5355.00, y = 1265.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-13.12
+ponto: x = 5465.00, y = 1265.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-13.13
+ponto: x = 5575.00, y = 1265.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-13.14
+ponto: x = 5685.00, y = 1265.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-13.15
+ponto: x = 5795.00, y = 1265.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-13.16
+ponto: x = 5905.00, y = 1265.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-12.7
+ponto: x = 4915.00, y = 1180.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-12.8
+ponto: x = 5025.00, y = 1180.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-12.9
+ponto: x = 5135.00, y = 1180.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-12.10
+ponto: x = 5245.00, y = 1180.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-12.11
+ponto: x = 5355.00, y = 1180.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-12.12
+ponto: x = 5465.00, y = 1180.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-12.13
+ponto: x = 5575.00, y = 1180.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-12.14
+ponto: x = 5685.00, y = 1180.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-12.15
+ponto: x = 5795.00, y = 1180.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-12.16
+ponto: x = 5905.00, y = 1180.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-11.7
+ponto: x = 4915.00, y = 1095.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-11.8
+ponto: x = 5025.00, y = 1095.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-11.9
+ponto: x = 5135.00, y = 1095.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-11.10
+ponto: x = 5245.00, y = 1095.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-11.11
+ponto: x = 5355.00, y = 1095.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-11.12
+ponto: x = 5465.00, y = 1095.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-11.13
+ponto: x = 5575.00, y = 1095.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-11.14
+ponto: x = 5685.00, y = 1095.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-11.15
+ponto: x = 5795.00, y = 1095.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-11.16
+ponto: x = 5905.00, y = 1095.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-10.7
+ponto: x = 4915.00, y = 1010.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-10.8
+ponto: x = 5025.00, y = 1010.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-10.9
+ponto: x = 5135.00, y = 1010.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-10.10
+ponto: x = 5245.00, y = 1010.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-10.11
+ponto: x = 5355.00, y = 1010.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-10.12
+ponto: x = 5465.00, y = 1010.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-10.13
+ponto: x = 5575.00, y = 1010.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-10.14
+ponto: x = 5685.00, y = 1010.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-10.15
+ponto: x = 5795.00, y = 1010.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-10.16
+ponto: x = 5905.00, y = 1010.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-9.7
+ponto: x = 4915.00, y = 925.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-9.8
+ponto: x = 5025.00, y = 925.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-9.9
+ponto: x = 5135.00, y = 925.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-9.10
+ponto: x = 5245.00, y = 925.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-9.11
+ponto: x = 5355.00, y = 925.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-9.12
+ponto: x = 5465.00, y = 925.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-9.13
+ponto: x = 5575.00, y = 925.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-9.14
+ponto: x = 5685.00, y = 925.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-9.15
+ponto: x = 5795.00, y = 925.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-9.16
+ponto: x = 5905.00, y = 925.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-8.7
+ponto: x = 4915.00, y = 840.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-8.8
+ponto: x = 5025.00, y = 840.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-8.9
+ponto: x = 5135.00, y = 840.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-8.10
+ponto: x = 5245.00, y = 840.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-8.11
+ponto: x = 5355.00, y = 840.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-8.12
+ponto: x = 5465.00, y = 840.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-8.13
+ponto: x = 5575.00, y = 840.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-8.14
+ponto: x = 5685.00, y = 840.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-8.15
+ponto: x = 5795.00, y = 840.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-8.16
+ponto: x = 5905.00, y = 840.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-7.7
+ponto: x = 4915.00, y = 755.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-7.8
+ponto: x = 5025.00, y = 755.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-7.9
+ponto: x = 5135.00, y = 755.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-7.10
+ponto: x = 5245.00, y = 755.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-7.11
+ponto: x = 5355.00, y = 755.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-7.12
+ponto: x = 5465.00, y = 755.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-7.13
+ponto: x = 5575.00, y = 755.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-7.14
+ponto: x = 5685.00, y = 755.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-7.15
+ponto: x = 5795.00, y = 755.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+Quadra removida
+cep: B32-7.16
+ponto: x = 5905.00, y = 755.00
+largura = 100.00, altura = 75.00
+espessura da borda: 1.0px, cor de preenchimento: yellow, cor da borda: black
+
+
+

@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "kdtree.h"
 #include <math.h>
+#include <string.h>
+#include "kdtree.h"
+#include "block.h"
 
 typedef struct KDTreeNode{
-    ListInfo_t info;
+    KDTreeInfo_t info;
     // 0 para x e 1 para y
     int cd;
     double key[2];
@@ -371,5 +373,20 @@ List_t get_info_inside_kd(KDTree_t _tree, double x, double y, double w, double h
     get_info_inside_aux(list, tree->root, x, y, w, h);
 
     return list;
+}
+
+void get_block_from_cep(KDTreeNode_t _root, char *cep, Block_t *result){
+    if(_root == NULL){
+        return;
+    }
+    KDTreeNode *node = (KDTreeNode*) _root;
+    KDTreeInfo_t block = get_kd_node_info(node);
+    char *block_cep = get_block_cep(block);
+    if(strcmp(cep, block_cep) == 0){
+        *result = block;
+        return;
+    }
+    get_block_from_cep(node->right, cep, result);
+    get_block_from_cep(node->left, cep, result);
 }
 

@@ -1,6 +1,6 @@
-#include "block.h"
-#include <string.h>
 #include <stdlib.h>
+#include <string.h>
+#include "block.h"
 
 typedef struct Block{
     char cep[200];
@@ -53,6 +53,7 @@ void print_block(Block_t block_, FILE *svgFile) {
     }
     fprintf(svgFile,"\t<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" fill=\"%s\" opacity=\"0.8\" stroke=\"%s\" stroke-width=\"%s\"/>\n",
             block->point[0], block->point[1], block->width, block->height, block->fill, block->stroke, block->sw);
+    fprintf(svgFile,"\t<text x=\"%f\" y=\"%f\" text-anchor=\"start\" text-align=\"start\">%s</text>", block->point[0], block->point[1] + 10, block->cep);
 }
 // void remove_block(HashTable_t _hashTable, AvlTree_t _tree, void(*remove)(void*, void*, void*, int), void *parameter){
 //     remove(_hashTable, _tree, parameter, 1);
@@ -109,4 +110,28 @@ void print_catac_block(Block_t _block, FILE *svgFile){
     fprintf(svgFile,"\t<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" fill=\"#AB37C8\" opacity=\"0.5\" stroke=\"#AA0044\" stroke-width=\"%s\"/>\n",
             block->point[0], block->point[1], block->width, block->height, block->sw);
 }
+
+Point_t get_block_point_face(Block_t _block, char face, int num){
+    Block *block = (Block*) _block;
+    double x, y;
+    switch(face){
+        case 'N':
+            x = block->point[0] + block->height;
+            y = block->point[1] + num;
+            return create_point(x, y);
+        case 'S':
+            x = block->point[0];
+            y = block->point[1] + num;
+            return create_point(x, y);
+        case 'L':
+            x = block->point[0] + num;
+            y = block->point[1];
+            return create_point(x, y);
+        case 'O':
+            x = block->point[0] + num;
+            y = block->point[1] + block->width;
+    }
+    return NULL;
+}
+
 

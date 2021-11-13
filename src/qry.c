@@ -4,7 +4,6 @@
 #include "svg.h"
 #include "block.h"
 #include "qry_functions.h"
-// #include "qry_functions.h"
 
 void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
     char aux[5];
@@ -12,6 +11,7 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
     double x, y, w, h;
     char cep[200], face;
     int num;
+    Point_t o_point = NULL;
 
     open_svg(qrySVGFile);
 
@@ -24,8 +24,8 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
         }
         if(strcmp(aux, "@o?") == 0){
             fscanf(qryFile, "%s %s %d", cep, &face, &num);
-            fprintf(qryTXTFile, "@o?\n");
-            fprintf(qryTXTFile, "\n\n");
+            fprintf(qryTXTFile, "@o?\n\n");
+            o_point = arroba_o_int(city, cep, face, num, qrySVGFile);
         }
     }
 

@@ -3,6 +3,8 @@
 #include "city.h"
 
 
+Point_t arroba_o_int(City_t _city, char *cep, char face, int num, FILE *svgFile);
+
 void catac(City_t _city, double x, double y, double w, double h, FILE *qrySVGFile, FILE *qryTXTFile);
 
 

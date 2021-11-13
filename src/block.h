@@ -1,6 +1,7 @@
 #ifndef BLOCK_H_
 #define BLOCK_H_
 #include <stdio.h>
+#include "point.h"
 typedef void *Block_t;
 
 /*
@@ -60,5 +61,6 @@ double get_block_height(Block_t _block);
 char *get_block_sw(Block_t _block);
 char *get_block_stroke(Block_t _block);
 char *get_block_fill(Block_t _block);
+Point_t get_block_point_face(Block_t _block, char face, int num);
 
 #endif //BLOCK_H_

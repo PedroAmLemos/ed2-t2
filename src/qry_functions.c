@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 #include <string.h>
 
 #include "graph.h"
@@ -10,6 +11,52 @@
 #include "linked_list.h"
 #include "svg.h"
 #include "vertex.h"
+
+Point_t arroba_o_int(City_t _city, char *cep, char face, int num, FILE *svgFile){
+    // Primeiro, achar o ponto que corresponde ao endereço passado
+    double x1, y1;
+    KDTree_t blocks_tree = get_blocks_tree(_city);
+    Block_t block_adress = NULL;
+
+    get_block_from_cep(get_kd_root(blocks_tree), cep, &block_adress);
+    if(block_adress == NULL){
+        return NULL;
+    }
+    Point_t point_address = get_block_point_face(block_adress, face, num);
+    x1 = get_point_x(point_address);
+    y1 = get_point_y(point_address);
+    print_line(x1, y1, x1, 0, "black", svgFile);
+    fprintf(svgFile, "\t<text x=\"%.2f\" y=\"10\">CEP:%s FACE:%c NUM: %d</text>\n", x1, cep, face, num);
+    return point_address;
+
+    // achar o vertice mais proximo considerando um raio máximo de 100
+    //Graph_t graph = get_street_graph(_city);
+    //AdjList_t adj = NULL;
+    //Vertex_t vertex = NULL, smaller_dist_vertex = NULL;
+    //Point_t vertex_point = NULL;
+    //double smaller_dist = INFINITY, x2, y2, dist;
+    //for(ListNode_t node = get_list_first(graph); node != NULL; node = get_list_next(node)){
+    //    adj = get_list_info(node);
+    //    for(ListNode_t adj_node = get_list_first(graph); adj_node != NULL; adj_node = get_list_next(adj_node)){
+    //        vertex = get_graph_vertex(adj);
+    //        vertex_point = get_vertex_point(vertex);
+    //        x2 = get_point_x(vertex_point);
+    //        y2 = get_point_y(vertex_point);
+    //        dist = sqrt(pow(x2-x1, 2) + pow(y2-y1, 2));
+    //        if(dist < 0){
+    //            dist = dist * (-1);
+    //        }
+    //        if(dist < smaller_dist){
+    //            smaller_dist = dist;
+    //            smaller_dist_vertex = vertex;
+    //        }
+    //    }
+    //}
+    //if(smaller_dist > 100){
+    //    return NULL;
+    //}
+    //return vertex;
+}
 
 void catac(City_t _city, double x, double y, double w, double h, FILE *qrySVGFile, FILE *qryTXTFile){
     KDTree_t blocks_tree = get_blocks_tree(_city);

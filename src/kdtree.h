@@ -2,6 +2,7 @@
 #define KD_TREE_H
 
 #include "linked_list.h"
+#include "block.h"
 
 typedef void* KDTree_t;
 typedef void* KDTreeNode_t;
@@ -51,4 +52,5 @@ double* get_kd_max(KDTreeNode_t _root);
 
 List_t get_info_inside_kd(KDTree_t _tree, double x, double y, double w, double h);
 
+void get_block_from_cep(KDTreeNode_t _root, char *cep, Block_t *result);
 #endif

@@ -59,11 +59,14 @@ int main(int argc, char *argv[]){
 
     free(geo);
     free(outPath);
-    if (entryPath)
+    if (entryPath){
         free(entryPath);
-    if (qry)
-        free(qry);
-    if (via)
+    }
+    if(qry){
+       free(qry);
+    }
+    if(via){
         free(via);
+    }
     return 0;
 }

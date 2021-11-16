@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <string.h>
+
 #include "edge.h"
 #include "graph.h"
 
@@ -76,4 +77,21 @@ void delete_full_graph(Graph_t _graph){
     }
     delete_graph(_graph);
 }
-//TODO fazer copia grafo
+
+Graph_t create_graph_copy(Graph_t graph){
+    Graph_t copy = create_graph();
+    AdjList *adj = NULL;
+    ListNode_t edge_list = NULL;
+    Vertex_t vertex = NULL;
+    for(ListNode_t node = get_list_first(graph); node != NULL; node = get_list_next(node)){
+        adj = (AdjList *) get_list_info(node);
+        edge_list = adj->edges;
+        vertex = adj->start;
+        add_graph_vertex(copy, vertex);
+        for(ListNode_t edge_node = get_list_first(edge_list); edge_node != NULL; edge_node = get_list_next(edge_node)){
+            add_graph_edge(copy, get_list_info(edge_node));
+        }
+    }
+    return copy;
+}
+

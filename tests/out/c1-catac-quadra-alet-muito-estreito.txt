@@ -1,0 +1,8 @@
+catac
+Vertice removido ==> ID: (b0|3,6)(b0|3,5).1 X: 833.750000 Y: 376.250000
+Vertice removido ==> ID: (b0|3,6)(b0|3,5).2 X: 800.000000 Y: 376.250000
+Vertice removido ==> ID: (b0|3,5) X: 766.250000 Y: 376.250000
+Vertice removido ==> ID: (b0|4,5)(b0|3,5).1 X: 766.250000 Y: 423.750000
+Vertice removido ==> ID: (b0|4,5)(b0|3,5).2 X: 766.250000 Y: 400.000000
+
+

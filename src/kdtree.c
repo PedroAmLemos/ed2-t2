@@ -349,8 +349,8 @@ void get_info_inside_aux(List_t _list, KDTreeNode_t _root, double x, double y, d
         return;
     }
 
-    if(root->key[0] > x && root->key[0] < (x + w)){
-        if(root->key[1] > y && root->key[1] < (y + h)){
+    if(root->key[0] >= x && root->key[0] <= (x + w)){
+        if(root->key[1] >= y && root->key[1] <= (y + h)){
             insert_list(_list, get_kd_node_info(root));
         }
     }

@@ -1,27 +1,120 @@
 catac
-Quadra removida
-cep: b03.8
-ponto: x = 1040.00, y = 285.00
-largura = 120.00, altura = 80.00
-espessura da borda: 1.0px, cor de preenchimento: tan, cor da borda: MediumAquamarine
-
-Quadra removida
-cep: b04.8
-ponto: x = 1040.00, y = 380.00
-largura = 120.00, altura = 80.00
-espessura da borda: 1.0px, cor de preenchimento: tan, cor da borda: MediumAquamarine
-
-Quadra removida
-cep: b03.7
-ponto: x = 905.00, y = 285.00
-largura = 120.00, altura = 80.00
-espessura da borda: 1.0px, cor de preenchimento: tan, cor da borda: MediumAquamarine
-
-Quadra removida
-cep: b04.7
-ponto: x = 905.00, y = 380.00
-largura = 120.00, altura = 80.00
-espessura da borda: 1.0px, cor de preenchimento: tan, cor da borda: MediumAquamarine
-
+Quadra removida ==> CEP: b03.8 PONTO: x = 1040.00, y = 285.00 LARGURA = 120.00, ALTURA = 80.00 ESPESSURA DA BORDA: 1.0px, COR DE PREENCHIMENTO tan, COR DA BORDA: MediumAquamarine
+Quadra removida ==> CEP: b04.8 PONTO: x = 1040.00, y = 380.00 LARGURA = 120.00, ALTURA = 80.00 ESPESSURA DA BORDA: 1.0px, COR DE PREENCHIMENTO tan, COR DA BORDA: MediumAquamarine
+Quadra removida ==> CEP: b03.7 PONTO: x = 905.00, y = 285.00 LARGURA = 120.00, ALTURA = 80.00 ESPESSURA DA BORDA: 1.0px, COR DE PREENCHIMENTO tan, COR DA BORDA: MediumAquamarine
+Quadra removida ==> CEP: b04.7 PONTO: x = 905.00, y = 380.00 LARGURA = 120.00, ALTURA = 80.00 ESPESSURA DA BORDA: 1.0px, COR DE PREENCHIMENTO tan, COR DA BORDA: MediumAquamarine
+Vertice removido ==> ID: (b0|2,7)(b0|2,8).2 X: 1137.500000 Y: 281.250000
+Aresta removida ==> NOME: Yorba_St NOME VERTICE INICIAL: (b0|2,7)(b0|2,8).2 NOME VERTICE FINAL: (b0|2,8) LESQ: b02.8 LDIR: b03.8 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|3,8)(b0|3,7).0 X: 1137.500000 Y: 376.250000
+Aresta removida ==> NOME: Yerba_Buena_Ln NOME VERTICE INICIAL: (b0|3,8)(b0|3,7).0 NOME VERTICE FINAL: (b0|3,8)(b0|3,7).1 LESQ: b04.8 LDIR: b03.8 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|4,7)(b0|4,8).2 X: 1137.500000 Y: 471.250000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,7)(b0|4,8).2 NOME VERTICE FINAL: (b0|4,8) LESQ: b04.8 LDIR: b05.8 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|2,7)(b0|2,8).0 X: 1070.000000 Y: 281.250000
+Aresta removida ==> NOME: Yorba_St NOME VERTICE INICIAL: (b0|2,7)(b0|2,8).0 NOME VERTICE FINAL: (b0|2,7)(b0|2,8).1 LESQ: b02.8 LDIR: b03.8 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|2,7)(b0|2,8).1 X: 1103.750000 Y: 281.250000
+Aresta removida ==> NOME: Yorba_St NOME VERTICE INICIAL: (b0|2,7)(b0|2,8).1 NOME VERTICE FINAL: (b0|2,7)(b0|2,8).2 LESQ: b02.8 LDIR: b03.8 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|3,8)(b0|3,7).1 X: 1103.750000 Y: 376.250000
+Aresta removida ==> NOME: Yerba_Buena_Ln NOME VERTICE INICIAL: (b0|3,8)(b0|3,7).1 NOME VERTICE FINAL: (b0|3,8)(b0|3,7).2 LESQ: b04.8 LDIR: b03.8 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|4,7)(b0|4,8).1 X: 1103.750000 Y: 471.250000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,7)(b0|4,8).1 NOME VERTICE FINAL: (b0|4,7)(b0|4,8).2 LESQ: b04.8 LDIR: b05.8 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|3,8)(b0|3,7).2 X: 1070.000000 Y: 376.250000
+Aresta removida ==> NOME: Yerba_Buena_Ln NOME VERTICE INICIAL: (b0|3,8)(b0|3,7).2 NOME VERTICE FINAL: (b0|3,7) LESQ: b04.8 LDIR: b03.8 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|4,7)(b0|4,8).0 X: 1070.000000 Y: 471.250000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,7)(b0|4,8).0 NOME VERTICE FINAL: (b0|4,7)(b0|4,8).1 LESQ: b04.8 LDIR: b05.8 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|2,7) X: 1036.250000 Y: 281.250000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|2,7) NOME VERTICE FINAL: (b0|2,7)(b0|1,7).0 LESQ: b02.7 LDIR: b02.8 CMP: 23.750000 VM: 9.000000
+Aresta removida ==> NOME: Yorba_St NOME VERTICE INICIAL: (b0|2,7) NOME VERTICE FINAL: (b0|2,7)(b0|2,8).0 LESQ: b02.8 LDIR: b03.8 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|2,6)(b0|2,7).2 X: 1002.500000 Y: 281.250000
+Aresta removida ==> NOME: Yorba_St NOME VERTICE INICIAL: (b0|2,6)(b0|2,7).2 NOME VERTICE FINAL: (b0|2,7) LESQ: b02.7 LDIR: b03.7 CMP: 33.750000 VM: 10.000000
+Vertice removido ==> ID: (b0|3,7) X: 1036.250000 Y: 376.250000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|3,7) NOME VERTICE FINAL: (b0|3,7)(b0|2,7).0 LESQ: b03.7 LDIR: b03.8 CMP: 23.750000 VM: 9.000000
+Aresta removida ==> NOME: Yerba_Buena_Ln NOME VERTICE INICIAL: (b0|3,7) NOME VERTICE FINAL: (b0|3,7)(b0|3,6).0 LESQ: b04.7 LDIR: b03.7 CMP: 33.750000 VM: 10.000000
+Vertice removido ==> ID: (b0|3,7)(b0|3,6).0 X: 1002.500000 Y: 376.250000
+Aresta removida ==> NOME: Yerba_Buena_Ln NOME VERTICE INICIAL: (b0|3,7)(b0|3,6).0 NOME VERTICE FINAL: (b0|3,7)(b0|3,6).1 LESQ: b04.7 LDIR: b03.7 CMP: 33.750000 VM: 10.000000
+Vertice removido ==> ID: (b0|4,7) X: 1036.250000 Y: 471.250000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|4,7) NOME VERTICE FINAL: (b0|4,7)(b0|3,7).0 LESQ: b04.7 LDIR: b04.8 CMP: 23.750000 VM: 9.000000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,7) NOME VERTICE FINAL: (b0|4,7)(b0|4,8).0 LESQ: b04.8 LDIR: b05.8 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|4,6)(b0|4,7).2 X: 1002.500000 Y: 471.250000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,6)(b0|4,7).2 NOME VERTICE FINAL: (b0|4,7) LESQ: b04.7 LDIR: b05.7 CMP: 33.750000 VM: 10.000000
+Vertice removido ==> ID: (b0|5,7)(b0|4,7).1 X: 1036.250000 Y: 518.750000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|5,7)(b0|4,7).1 NOME VERTICE FINAL: (b0|5,7)(b0|4,7).2 LESQ: b05.7 LDIR: b05.8 CMP: 23.750000 VM: 9.000000
+Vertice removido ==> ID: (b0|5,7)(b0|4,7).2 X: 1036.250000 Y: 495.000000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|5,7)(b0|4,7).2 NOME VERTICE FINAL: (b0|4,7) LESQ: b05.7 LDIR: b05.8 CMP: 23.750000 VM: 9.000000
+Vertice removido ==> ID: (b0|4,7)(b0|3,7).0 X: 1036.250000 Y: 447.500000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|4,7)(b0|3,7).0 NOME VERTICE FINAL: (b0|4,7)(b0|3,7).1 LESQ: b04.7 LDIR: b04.8 CMP: 23.750000 VM: 9.000000
+Vertice removido ==> ID: (b0|4,7)(b0|3,7).1 X: 1036.250000 Y: 423.750000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|4,7)(b0|3,7).1 NOME VERTICE FINAL: (b0|4,7)(b0|3,7).2 LESQ: b04.7 LDIR: b04.8 CMP: 23.750000 VM: 9.000000
+Vertice removido ==> ID: (b0|4,7)(b0|3,7).2 X: 1036.250000 Y: 400.000000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|4,7)(b0|3,7).2 NOME VERTICE FINAL: (b0|3,7) LESQ: b04.7 LDIR: b04.8 CMP: 23.750000 VM: 9.000000
+Vertice removido ==> ID: (b0|3,7)(b0|2,7).0 X: 1036.250000 Y: 352.500000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|3,7)(b0|2,7).0 NOME VERTICE FINAL: (b0|3,7)(b0|2,7).1 LESQ: b03.7 LDIR: b03.8 CMP: 23.750000 VM: 9.000000
+Vertice removido ==> ID: (b0|3,7)(b0|2,7).1 X: 1036.250000 Y: 328.750000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|3,7)(b0|2,7).1 NOME VERTICE FINAL: (b0|3,7)(b0|2,7).2 LESQ: b03.7 LDIR: b03.8 CMP: 23.750000 VM: 9.000000
+Vertice removido ==> ID: (b0|3,7)(b0|2,7).2 X: 1036.250000 Y: 305.000000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|3,7)(b0|2,7).2 NOME VERTICE FINAL: (b0|2,7) LESQ: b03.7 LDIR: b03.8 CMP: 23.750000 VM: 9.000000
+Vertice removido ==> ID: (b0|2,7)(b0|1,7).0 X: 1036.250000 Y: 257.500000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|2,7)(b0|1,7).0 NOME VERTICE FINAL: (b0|2,7)(b0|1,7).1 LESQ: b02.7 LDIR: b02.8 CMP: 23.750000 VM: 9.000000
+Vertice removido ==> ID: (b0|2,7)(b0|1,7).1 X: 1036.250000 Y: 233.750000
+Aresta removida ==> NOME: Yukon_St NOME VERTICE INICIAL: (b0|2,7)(b0|1,7).1 NOME VERTICE FINAL: (b0|2,7)(b0|1,7).2 LESQ: b02.7 LDIR: b02.8 CMP: 23.750000 VM: 9.000000
+Vertice removido ==> ID: (b0|2,6)(b0|2,7).0 X: 935.000000 Y: 281.250000
+Aresta removida ==> NOME: Yorba_St NOME VERTICE INICIAL: (b0|2,6)(b0|2,7).0 NOME VERTICE FINAL: (b0|2,6)(b0|2,7).1 LESQ: b02.7 LDIR: b03.7 CMP: 33.750000 VM: 10.000000
+Vertice removido ==> ID: (b0|2,6)(b0|2,7).1 X: 968.750000 Y: 281.250000
+Aresta removida ==> NOME: Yorba_St NOME VERTICE INICIAL: (b0|2,6)(b0|2,7).1 NOME VERTICE FINAL: (b0|2,6)(b0|2,7).2 LESQ: b02.7 LDIR: b03.7 CMP: 33.750000 VM: 10.000000
+Vertice removido ==> ID: (b0|3,7)(b0|3,6).1 X: 968.750000 Y: 376.250000
+Aresta removida ==> NOME: Yerba_Buena_Ln NOME VERTICE INICIAL: (b0|3,7)(b0|3,6).1 NOME VERTICE FINAL: (b0|3,7)(b0|3,6).2 LESQ: b04.7 LDIR: b03.7 CMP: 33.750000 VM: 10.000000
+Vertice removido ==> ID: (b0|4,6)(b0|4,7).1 X: 968.750000 Y: 471.250000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,6)(b0|4,7).1 NOME VERTICE FINAL: (b0|4,6)(b0|4,7).2 LESQ: b04.7 LDIR: b05.7 CMP: 33.750000 VM: 10.000000
+Vertice removido ==> ID: (b0|3,7)(b0|3,6).2 X: 935.000000 Y: 376.250000
+Aresta removida ==> NOME: Yerba_Buena_Ln NOME VERTICE INICIAL: (b0|3,7)(b0|3,6).2 NOME VERTICE FINAL: (b0|3,6) LESQ: b04.7 LDIR: b03.7 CMP: 33.750000 VM: 10.000000
+Vertice removido ==> ID: (b0|4,6)(b0|4,7).0 X: 935.000000 Y: 471.250000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,6)(b0|4,7).0 NOME VERTICE FINAL: (b0|4,6)(b0|4,7).1 LESQ: b04.7 LDIR: b05.7 CMP: 33.750000 VM: 10.000000
+Vertice removido ==> ID: (b0|2,6) X: 901.250000 Y: 281.250000
+Aresta removida ==> NOME: Yorba_St NOME VERTICE INICIAL: (b0|2,6) NOME VERTICE FINAL: (b0|2,6)(b0|2,7).0 LESQ: b02.7 LDIR: b03.7 CMP: 33.750000 VM: 10.000000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|2,6) NOME VERTICE FINAL: (b0|2,6)(b0|3,6).0 LESQ: b03.7 LDIR: b03.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|2,5)(b0|2,6).2 X: 867.500000 Y: 281.250000
+Aresta removida ==> NOME: Yorba_St NOME VERTICE INICIAL: (b0|2,5)(b0|2,6).2 NOME VERTICE FINAL: (b0|2,6) LESQ: b02.6 LDIR: b03.6 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|3,6) X: 901.250000 Y: 376.250000
+Aresta removida ==> NOME: Yerba_Buena_Ln NOME VERTICE INICIAL: (b0|3,6) NOME VERTICE FINAL: (b0|3,6)(b0|3,5).0 LESQ: b04.6 LDIR: b03.6 CMP: 33.750000 VM: 7.500000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|3,6) NOME VERTICE FINAL: (b0|3,6)(b0|4,6).0 LESQ: b04.7 LDIR: b04.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|3,6)(b0|3,5).0 X: 867.500000 Y: 376.250000
+Aresta removida ==> NOME: Yerba_Buena_Ln NOME VERTICE INICIAL: (b0|3,6)(b0|3,5).0 NOME VERTICE FINAL: (b0|3,6)(b0|3,5).1 LESQ: b04.6 LDIR: b03.6 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|4,6) X: 901.250000 Y: 471.250000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,6) NOME VERTICE FINAL: (b0|4,6)(b0|4,7).0 LESQ: b04.7 LDIR: b05.7 CMP: 33.750000 VM: 10.000000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|4,6) NOME VERTICE FINAL: (b0|4,6)(b0|5,6).0 LESQ: b05.7 LDIR: b05.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|4,5)(b0|4,6).2 X: 867.500000 Y: 471.250000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,5)(b0|4,6).2 NOME VERTICE FINAL: (b0|4,6) LESQ: b04.6 LDIR: b05.6 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|4,6)(b0|5,6).0 X: 901.250000 Y: 495.000000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|4,6)(b0|5,6).0 NOME VERTICE FINAL: (b0|4,6)(b0|5,6).1 LESQ: b05.7 LDIR: b05.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|4,6)(b0|5,6).1 X: 901.250000 Y: 518.750000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|4,6)(b0|5,6).1 NOME VERTICE FINAL: (b0|4,6)(b0|5,6).2 LESQ: b05.7 LDIR: b05.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|3,6)(b0|4,6).0 X: 901.250000 Y: 400.000000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|3,6)(b0|4,6).0 NOME VERTICE FINAL: (b0|3,6)(b0|4,6).1 LESQ: b04.7 LDIR: b04.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|3,6)(b0|4,6).1 X: 901.250000 Y: 423.750000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|3,6)(b0|4,6).1 NOME VERTICE FINAL: (b0|3,6)(b0|4,6).2 LESQ: b04.7 LDIR: b04.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|3,6)(b0|4,6).2 X: 901.250000 Y: 447.500000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|3,6)(b0|4,6).2 NOME VERTICE FINAL: (b0|4,6) LESQ: b04.7 LDIR: b04.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|2,6)(b0|3,6).0 X: 901.250000 Y: 305.000000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|2,6)(b0|3,6).0 NOME VERTICE FINAL: (b0|2,6)(b0|3,6).1 LESQ: b03.7 LDIR: b03.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|2,6)(b0|3,6).1 X: 901.250000 Y: 328.750000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|2,6)(b0|3,6).1 NOME VERTICE FINAL: (b0|2,6)(b0|3,6).2 LESQ: b03.7 LDIR: b03.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|2,6)(b0|3,6).2 X: 901.250000 Y: 352.500000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|2,6)(b0|3,6).2 NOME VERTICE FINAL: (b0|3,6) LESQ: b03.7 LDIR: b03.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|1,6)(b0|2,6).1 X: 901.250000 Y: 233.750000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|1,6)(b0|2,6).1 NOME VERTICE FINAL: (b0|1,6)(b0|2,6).2 LESQ: b02.7 LDIR: b02.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|1,6)(b0|2,6).2 X: 901.250000 Y: 257.500000
+Aresta removida ==> NOME: Zampa_Ln NOME VERTICE INICIAL: (b0|1,6)(b0|2,6).2 NOME VERTICE FINAL: (b0|2,6) LESQ: b02.7 LDIR: b02.6 CMP: 23.750000 VM: 12.000000
+Vertice removido ==> ID: (b0|2,5)(b0|2,6).0 X: 800.000000 Y: 281.250000
+Aresta removida ==> NOME: Yorba_St NOME VERTICE INICIAL: (b0|2,5)(b0|2,6).0 NOME VERTICE FINAL: (b0|2,5)(b0|2,6).1 LESQ: b02.6 LDIR: b03.6 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|2,5)(b0|2,6).1 X: 833.750000 Y: 281.250000
+Aresta removida ==> NOME: Yorba_St NOME VERTICE INICIAL: (b0|2,5)(b0|2,6).1 NOME VERTICE FINAL: (b0|2,5)(b0|2,6).2 LESQ: b02.6 LDIR: b03.6 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|3,6)(b0|3,5).1 X: 833.750000 Y: 376.250000
+Aresta removida ==> NOME: Yerba_Buena_Ln NOME VERTICE INICIAL: (b0|3,6)(b0|3,5).1 NOME VERTICE FINAL: (b0|3,6)(b0|3,5).2 LESQ: b04.6 LDIR: b03.6 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|4,5)(b0|4,6).1 X: 833.750000 Y: 471.250000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,5)(b0|4,6).1 NOME VERTICE FINAL: (b0|4,5)(b0|4,6).2 LESQ: b04.6 LDIR: b05.6 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|3,6)(b0|3,5).2 X: 800.000000 Y: 376.250000
+Aresta removida ==> NOME: Yerba_Buena_Ln NOME VERTICE INICIAL: (b0|3,6)(b0|3,5).2 NOME VERTICE FINAL: (b0|3,5) LESQ: b04.6 LDIR: b03.6 CMP: 33.750000 VM: 7.500000
+Vertice removido ==> ID: (b0|4,5)(b0|4,6).0 X: 800.000000 Y: 471.250000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,5)(b0|4,6).0 NOME VERTICE FINAL: (b0|4,5)(b0|4,6).1 LESQ: b04.6 LDIR: b05.6 CMP: 33.750000 VM: 7.500000
+Aresta removida ==> NOME: Yerba_Buena_Ave NOME VERTICE INICIAL: (b0|4,5) NOME VERTICE FINAL: (b0|4,5)(b0|4,6).0 LESQ: b04.6 LDIR: b05.6 CMP: 33.750000 VM: 7.500000
 
 

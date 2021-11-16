@@ -18,6 +18,8 @@ List_t get_graph_edges(AdjList_t _adj);
 
 AdjList_t get_graph_adj_list(Graph_t _graph, char* vertex_name);
 
+AdjList_t get_graph_adj_list_vertex(Graph_t _graph, char* vertex_name);
+
 ListNode_t get_graph_node(Graph_t _graph, char* vertex_name);
 
 void add_graph_vertex(Graph_t _graph, Vertex_t _vertex);
@@ -31,5 +33,7 @@ void delete_graph(Graph_t _graph);
 void delete_full_graph(Graph_t _graph);
 
 Graph_t create_graph_copy(Graph_t graph);
+
+void clean_adj_edges(AdjList_t _adj);
 
 #endif

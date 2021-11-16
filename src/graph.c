@@ -3,6 +3,7 @@
 
 #include "edge.h"
 #include "graph.h"
+#include "linked_list.h"
 
 typedef struct AdjList{
     Vertex_t start;
@@ -31,6 +32,12 @@ AdjList_t get_graph_adj_list(Graph_t _graph, char* vertex_name){
         }
     }
     return NULL;
+}
+
+AdjList_t get_graph_adj_list_vertex(Graph_t _graph, char* vertex_name){
+    AdjList *al;
+    al = (AdjList*) get_graph_adj_list(_graph, vertex_name);
+    return al->start;
 }
 
 ListNode_t get_graph_node(Graph_t _graph, char* vertex_name){
@@ -93,5 +100,11 @@ Graph_t create_graph_copy(Graph_t graph){
         }
     }
     return copy;
+}
+
+void clean_adj_edges(AdjList_t _adj){
+    AdjList *adj = (AdjList *) _adj;
+    remove_list(adj->edges, free);
+    adj->edges = create_list();
 }
 

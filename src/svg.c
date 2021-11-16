@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "edge.h"
 #include "svg.h"
 #include "vertex.h"
 
@@ -42,6 +43,26 @@ void print_rectangle(double x, double y, double w, double h, char *fill, char *s
 }
 
 void print_vertex(Vertex_t _vertex, char* vertex_color, FILE* svg_file){
-    fprintf(svg_file, "\n\t<circle cx=\"%f\" cy=\"%f\" r=\"10\" stroke=\"%s\" fill=\"white\" stroke-width=\"0.5\" />", get_vertex_x(_vertex), get_vertex_y(_vertex), vertex_color);
-    fprintf(svg_file, "\n\t<text x=\"%f\" y=\"%f\" text-anchor=\"middle\" font-size=\"0.13em\">%s</text>", get_vertex_x(_vertex), get_vertex_y(_vertex), get_vertex_name(_vertex));
+    fprintf(svg_file, "\n\t<circle cx=\"%f\" cy=\"%f\" r=\"2\" stroke=\"%s\" fill=\"black\" stroke-width=\"0.5\" />\n", get_vertex_x(_vertex), get_vertex_y(_vertex), vertex_color);
+    //fprintf(svg_file, "\n\t<text x=\"%f\" y=\"%f\" text-anchor=\"middle\" font-size=\"0.13em\">%s</text>\n", get_vertex_x(_vertex), get_vertex_y(_vertex), get_vertex_name(_vertex));
+}
+
+void print_graph(Graph_t _graph, FILE *svgFile){
+    AdjList_t adj_list = NULL;
+    Vertex_t vertex = NULL;
+    Vertex_t ending_vertex = NULL;
+    List_t edge_list = NULL;
+    Edge_t edge = NULL;
+    for(ListNode_t node = get_list_first(_graph); node != NULL; node = get_list_next(node)){
+        adj_list = get_list_info(node);
+        vertex = get_graph_vertex(adj_list);
+        edge_list = get_graph_edges(adj_list);
+        print_vertex(vertex, "black", svgFile);
+        for(ListNode_t edge_node = get_list_first(edge_list); edge_node != NULL; edge_node = get_list_next(edge_node)){
+            edge = get_list_info(edge_node);
+            ending_vertex = get_graph_adj_list_vertex(_graph, get_edge_end_vertex_name(edge));
+            print_line(get_vertex_x(vertex), get_vertex_y(vertex), get_vertex_x(ending_vertex), get_vertex_y(ending_vertex), "black", svgFile);
+        }
+    }
+
 }

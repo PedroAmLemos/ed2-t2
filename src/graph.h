@@ -30,4 +30,6 @@ void delete_graph(Graph_t _graph);
 
 void delete_full_graph(Graph_t _graph);
 
+Graph_t create_graph_copy(Graph_t graph);
+
 #endif

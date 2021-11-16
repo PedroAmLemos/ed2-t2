@@ -1,6 +1,7 @@
 #ifndef SVG_H_
 #define SVG_H_
 #include <stdio.h>
+#include "graph.h"
 #include "kdtree.h"
 
 /*
@@ -59,5 +60,7 @@ void print_rectangle_dashed(double x, double y, double w, double h, FILE *svgFil
  * Pós:
  */
 void print_rectangle(double x, double y, double w, double h, char *fill, char *stroke, FILE *svgFile);
+
+void print_graph(Graph_t _graph, FILE *svgFile);
 
 #endif //SVG_H_

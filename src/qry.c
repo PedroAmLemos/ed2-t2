@@ -33,5 +33,4 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
     print_tree(get_kd_root(get_blocks_tree(city)), qrySVGFile, print_block);
     free(o_point);
 
-    close_svg(qrySVGFile);
 }

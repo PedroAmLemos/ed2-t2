@@ -140,12 +140,29 @@ void catac(City_t _city, double x, double y, double w, double h, FILE *qrySVGFil
     remove_list(vertex_inside, NULL);
 
 
-    //TODO remover todas as arestas que começam / terminal no vertice removido, as que começam ja estão sendo removidas. e escrever no txt.
 }
 Graph_t rv(Graph_t graph, double x, double y, double w, double h, double f){
-    Graph_t rv_Graph = create_graph_copy(graph);
+    Point_t point;
+    AdjList_t adj_list = NULL;
+    Vertex_t vertex = NULL;
+    List_t edge_list = NULL;
+    Graph_t agm = create_graph();
+    // criar o novo grafo
+    for(ListNode_t node = get_list_first(graph); node != NULL; node = get_list_next(node)){
+        adj_list = get_list_info(node);
+        vertex = get_graph_vertex(adj_list);
+        edge_list = get_graph_edges(adj_list);
+        point = get_vertex_point(vertex);
+        if(is_pont_inside_rect(point, x, y, w, h)){
+            add_graph_vertex(agm, vertex);
+            for(ListNode_t edge = get_list_first(edge_list); edge != NULL; edge = get_list_next(edge)){
+                add_graph_edge(agm, get_list_info(edge));
+            }
+        }
+    }
 
+    // remover as arestas capengas
+    for(ListNode_t node = get_list_first(agm); node != NULL; node = get_list_next(node)){
 
-
-
+    }
 }

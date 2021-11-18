@@ -9,9 +9,11 @@
 /cmake-build-release---mingw/
 /cmake-build-default-wsl/
 /cmake-build-debug-wsl/
-t2
+src/t2
 
 .cache/clangd/index
 vgcore.*
 compile_commands.json
 src/.cache/clangd/index
+
+src/notes.txt

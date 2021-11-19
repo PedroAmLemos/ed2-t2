@@ -4,6 +4,8 @@
 #include "edge.h"
 #include "graph.h"
 #include "linked_list.h"
+#include "reading_utility.h"
+#include "vertex.h"
 
 typedef struct AdjList{
     Vertex_t start;
@@ -106,5 +108,23 @@ void clean_adj_edges(AdjList_t _adj){
     AdjList *adj = (AdjList *) _adj;
     remove_list(adj->edges, free);
     adj->edges = create_list();
+}
+
+void add_graph_edge_copy(Graph_t _graph, Edge_t _edge){
+    AdjList *al = get_graph_adj_list(_graph, get_edge_begin_vertex_name(_edge));
+    if(al == NULL){
+        return;
+    }
+    Edge_t edge = NULL;
+    edge = create_edge(get_edge_name(_edge), get_edge_begin_vertex_name(_edge), get_edge_end_vertex_name(_edge), get_edge_ldir(_edge), get_edge_lesq(_edge), get_edge_cmp(_edge), get_edge_vm(_edge));
+    insert_list(al->edges, edge);
+}
+
+void add_graph_vertex_copy(Graph_t _graph, Vertex_t _vertex){
+    AdjList *adj = (AdjList *) malloc(sizeof(AdjList));
+    Vertex_t copy = create_vertex(get_vertex_name(_vertex), get_vertex_x(_vertex), get_vertex_y(_vertex));
+    adj->start = copy;
+    adj->edges = create_list();
+    insert_list(_graph, adj);
 }
 

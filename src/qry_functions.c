@@ -3,6 +3,8 @@
 #include <math.h>
 #include <string.h>
 
+#include "reading_utility.h"
+#include "edge.h"
 #include "graph.h"
 #include "point.h"
 #include "qry_functions.h"
@@ -10,6 +12,7 @@
 #include "city.h"
 #include "kdtree.h"
 #include "linked_list.h"
+#include "qry_utils.h"
 #include "svg.h"
 #include "vertex.h"
 
@@ -141,12 +144,17 @@ void catac(City_t _city, double x, double y, double w, double h, FILE *qrySVGFil
 
 
 }
-Graph_t rv(Graph_t graph, double x, double y, double w, double h, double f){
-    Point_t point;
-    AdjList_t adj_list = NULL;
-    Vertex_t vertex = NULL;
-    List_t edge_list = NULL;
-    Graph_t agm = create_graph();
+Graph_t rv(City_t _city, double x, double y, double w, double h, double f){
+    Point_t point            = NULL;
+    AdjList_t adj_list       = NULL;
+    Vertex_t vertex          = NULL;
+    List_t edge_list         = NULL;
+    char *name               = NULL;
+    char *ending_vertex_name = NULL;
+    Graph_t agm              = create_graph();
+    List_t vertex_names      = create_list();
+    Graph_t graph            = get_street_graph(_city);
+
     // criar o novo grafo
     for(ListNode_t node = get_list_first(graph); node != NULL; node = get_list_next(node)){
         adj_list = get_list_info(node);
@@ -154,15 +162,27 @@ Graph_t rv(Graph_t graph, double x, double y, double w, double h, double f){
         edge_list = get_graph_edges(adj_list);
         point = get_vertex_point(vertex);
         if(is_pont_inside_rect(point, x, y, w, h)){
-            add_graph_vertex(agm, vertex);
-            for(ListNode_t edge = get_list_first(edge_list); edge != NULL; edge = get_list_next(edge)){
-                add_graph_edge(agm, get_list_info(edge));
-            }
+            name = copy(get_vertex_name(get_graph_vertex(adj_list)));
+            insert_list(vertex_names, name);
         }
     }
 
-    // remover as arestas capengas
-    for(ListNode_t node = get_list_first(agm); node != NULL; node = get_list_next(node)){
-
+    for(ListNode_t node = get_list_first(graph); node != NULL; node = get_list_next(node)){
+        adj_list = get_list_info(node);
+        vertex = get_graph_vertex(adj_list);
+        edge_list = get_graph_edges(adj_list);
+        point = get_vertex_point(vertex);
+        if(is_pont_inside_rect(point, x, y, w, h)){
+            add_graph_vertex_copy(agm, vertex);
+            for(ListNode_t node_node = get_list_first(edge_list); node_node != NULL; node_node = get_list_next(node_node)){
+                ending_vertex_name = get_edge_end_vertex_name(get_list_info(node_node));
+                if(is_name_in_list(vertex_names, ending_vertex_name)){
+                    add_graph_edge_copy(agm, get_list_info(node_node));
+                }
+            }
+        }
     }
+    remove_list(vertex_names, free);
+    // grafo pronto, agora só aplicar a função da agm
+    return agm;
 }

@@ -36,4 +36,8 @@ Graph_t create_graph_copy(Graph_t graph);
 
 void clean_adj_edges(AdjList_t _adj);
 
+void add_graph_edge_copy(Graph_t _graph, Edge_t _edge);
+
+void add_graph_vertex_copy(Graph_t _graph, Vertex_t _vertex);
+
 #endif

@@ -1,18 +1,23 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "edge.h"
+#include "graph.h"
 #include "qry.h"
 #include "svg.h"
 #include "block.h"
 #include "qry_functions.h"
+#include "linked_list.h"
+#include "vertex.h"
 
 void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
     char aux[5];
     // char cep[25], cpf[20], side, compl[25], id[50], dmptFilename[50];
-    double x, y, w, h;
+    double x, y, w, h, f;
     char cep[200], face;
     int num;
     Point_t o_point = NULL;
+    Graph_t agm = NULL;
 
     open_svg(qrySVGFile);
 
@@ -27,6 +32,13 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
             fprintf(qryTXTFile, "catac\n");
             catac(city, x, y, w, h, qrySVGFile, qryTXTFile);
             fprintf(qryTXTFile, "\n\n");
+        }
+        if(strcmp(aux, "rv") == 0){
+            fscanf(qryFile, "%lf %lf %lf %lf %lf", &x, &y, &w, &h, &f);
+            fprintf(qryTXTFile, "rv\n");
+            agm = rv(city, x, y, w, h, f);
+            print_graph(agm, qrySVGFile);
+            delete_full_graph(agm);
         }
     }
 

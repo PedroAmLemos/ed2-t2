@@ -85,21 +85,17 @@ void catac(City_t _city, double x, double y, double w, double h, FILE *qrySVGFil
         }
     }
     remove_list(points_inside, NULL);
-    // =====================================================//
-
 
     // remover vertices e suas arestas
-    List_t vertex_inside = get_info_inside_kd(vertex_tree, x, y, w, h);
-    AdjList_t adj_list = NULL;
-    Vertex_t vertex = NULL;
     char vertex_name[200];
-    List_t edge_list = NULL;
-    Edge_t edge = NULL;
-    Point_t point = NULL;
+    List_t vertex_inside      = get_info_inside_kd(vertex_tree, x, y, w, h);
+    AdjList_t adj_list        = NULL;
+    Vertex_t vertex           = NULL;
+    List_t edge_list          = NULL;
+    Edge_t edge               = NULL;
+    Point_t point             = NULL;
     ListNode_t edge_list_node = NULL;
-    edge_list = NULL;
-    edge = NULL;
-    char *ending_vertex_name = NULL;
+    char *ending_vertex_name  = NULL;
 
     for(ListNode_t aux = get_list_first(vertex_inside); aux != NULL; aux = get_list_next(aux)){
         vertex = get_list_info(aux);
@@ -145,15 +141,15 @@ void catac(City_t _city, double x, double y, double w, double h, FILE *qrySVGFil
 
 }
 Graph_t rv(City_t _city, double x, double y, double w, double h, double f){
+    Graph_t graph            = get_street_graph(_city);
+    Graph_t agm              = create_graph();
+    List_t vertex_names      = create_list();
+    List_t edge_list         = NULL;
     Point_t point            = NULL;
     AdjList_t adj_list       = NULL;
     Vertex_t vertex          = NULL;
-    List_t edge_list         = NULL;
     char *name               = NULL;
     char *ending_vertex_name = NULL;
-    Graph_t agm              = create_graph();
-    List_t vertex_names      = create_list();
-    Graph_t graph            = get_street_graph(_city);
 
     // criar o novo grafo
     for(ListNode_t node = get_list_first(graph); node != NULL; node = get_list_next(node)){

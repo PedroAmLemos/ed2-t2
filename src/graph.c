@@ -128,3 +128,8 @@ void add_graph_vertex_copy(Graph_t _graph, Vertex_t _vertex){
     insert_list(_graph, adj);
 }
 
+Graph_t agm_kruskal(Graph_t _graph){
+
+
+}
+

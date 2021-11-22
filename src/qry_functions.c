@@ -179,6 +179,11 @@ Graph_t rv(City_t _city, double x, double y, double w, double h, double f){
         }
     }
     remove_list(vertex_names, free);
+
+
+
+
+
     // grafo pronto, agora só aplicar a função da agm
     return agm;
 }

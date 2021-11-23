@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "edge.h"
 #include "graph.h"
+#include "linked_list.h"
 #include "vertex.h"
 
 
@@ -64,6 +65,35 @@ double get_edge_vm(Edge_t _edge){
 double get_edge_time(Edge_t _edge){
     Edge *edge = (Edge*) _edge;
     return edge->cmp / edge->vm;
+}
+
+
+int partition(List_t _list, int begin, int end){
+    double pivot = get_edge_cmp(get_list_info(get_list_last(_list)));
+    int pIndex = begin;
+
+    for(int i = begin; i < end; i++){
+        if(get_edge_cmp(get_list_info(get_list_index_node(_list, i))) <= pivot){
+            swap_list_info(get_list_index_node(_list, i), get_list_index_node(_list, pIndex));
+            pIndex++;
+        }
+    }
+    swap_list_info(get_list_index_node(_list, pIndex), get_list_index_node(_list, end));
+    return pIndex;
+}
+
+void quick_sort_edge_list(List_t _list, int begin, int end){
+    if(begin >= end)
+        return;
+    int pivot = partition(_list, begin, end);
+    quick_sort_edge_list(_list, begin, pivot-1);
+    quick_sort_edge_list(_list, pivot+1, end);
+}
+
+Edge_t create_edge_copy(Edge_t _edge){
+    Edge *edge = (Edge*) _edge;
+    Edge *result = create_edge(edge->name, edge->begin_vertex_name, edge->end_vertex_name, edge->ldir, edge->lesq, edge->cmp, edge->vm);
+    return result;
 }
 
 

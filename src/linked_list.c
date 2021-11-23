@@ -77,6 +77,11 @@ ListNode_t get_list_first(List_t list_){
     return list->first;
 }
 
+ListNode_t get_list_last(List_t _list){
+    List *list = (List*) _list;
+    return list->last;
+}
+
 ListNode_t get_list_next(ListNode_t node_){
     Node *list = (Node*) node_;
     return list->next;
@@ -92,4 +97,33 @@ int get_list_size(List_t _list){
     List *list = (List*) _list;
     return list->size;
 }
+
+ListNode_t get_list_index_node(List_t _list, int index){
+    List *list = (List*) _list;
+    int index_aux = 0;
+    for(Node *node = list->first; node != NULL; node = node->next){
+        if(index_aux == index){
+            return node;
+        }
+        index_aux++;
+    }
+    return NULL;
+}
+
+void swap_list_info(ListNode_t _a, ListNode_t _b) {
+    Node* a = (Node*) _a;
+    Node* b = (Node*) _b;
+    ListInfo_t aux;
+    aux = a->info;
+    a->info = b->info;
+    b->info = aux;
+}
+
+
+
+
+
+
+
+
 

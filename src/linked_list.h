@@ -32,6 +32,8 @@ void remove_list(List_t _list, void(*remove)(void*));
  */
 ListNode_t get_list_first(List_t list_);
 
+ListNode_t get_list_last(List_t _list);
+
 /*
  * Recebe um node e retorna o próximo node da lista;
  */
@@ -54,5 +56,7 @@ int get_list_size(List_t _list);
  */
 void get_points_inside(List_t _list, List_t storage, double x, double y, double w, double h);
 
+ListNode_t get_list_index_node(List_t _list, int index);
 
+void swap_list_info(ListNode_t _a, ListNode_t _b);
 #endif // LINKED_LIST_H_

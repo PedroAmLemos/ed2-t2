@@ -140,16 +140,20 @@ void catac(City_t _city, double x, double y, double w, double h, FILE *qrySVGFil
 
 
 }
-Graph_t rv(City_t _city, double x, double y, double w, double h, double f){
+void rv(City_t _city, double x, double y, double w, double h, double f, FILE *qrySVGFile, FILE* qryTXTFile){
     Graph_t graph            = get_street_graph(_city);
-    Graph_t agm              = create_graph();
+    Graph_t carlos           = create_graph();
     List_t vertex_names      = create_list();
     List_t edge_list         = NULL;
+    Vertex_t vertex          = NULL;
+    Edge_t edge              = NULL;
+    Edge_t edge_aux          = NULL;
     Point_t point            = NULL;
     AdjList_t adj_list       = NULL;
-    Vertex_t vertex          = NULL;
     char *name               = NULL;
     char *ending_vertex_name = NULL;
+    char *begin_vertex_name  = NULL;
+    AdjList_t adj_list_aux   = NULL;
 
     // criar o novo grafo
     for(ListNode_t node = get_list_first(graph); node != NULL; node = get_list_next(node)){
@@ -165,25 +169,39 @@ Graph_t rv(City_t _city, double x, double y, double w, double h, double f){
 
     for(ListNode_t node = get_list_first(graph); node != NULL; node = get_list_next(node)){
         adj_list = get_list_info(node);
-        vertex = get_graph_vertex(adj_list);
-        edge_list = get_graph_edges(adj_list);
+        vertex = get_graph_vertex(adj_list); edge_list = get_graph_edges(adj_list);
         point = get_vertex_point(vertex);
         if(is_pont_inside_rect(point, x, y, w, h)){
-            add_graph_vertex_copy(agm, vertex);
+            add_graph_vertex_copy(carlos, vertex);
             for(ListNode_t node_node = get_list_first(edge_list); node_node != NULL; node_node = get_list_next(node_node)){
                 ending_vertex_name = get_edge_end_vertex_name(get_list_info(node_node));
                 if(is_name_in_list(vertex_names, ending_vertex_name)){
-                    add_graph_edge_copy(agm, get_list_info(node_node));
+                    add_graph_edge_copy(carlos, get_list_info(node_node));
                 }
             }
         }
     }
     remove_list(vertex_names, free);
 
+    for(ListNode_t node = get_list_first(carlos); node != NULL; node = get_list_next(node)){
+        adj_list = get_list_info(node);
+        edge_list = get_graph_edges(adj_list);
+        for(ListNode_t edge_list_node = get_list_first(edge_list); edge_list_node != NULL; edge_list_node = get_list_next(edge_list_node)){
+            edge = get_list_info(edge_list_node);
+            ending_vertex_name = get_edge_end_vertex_name(edge);
+            begin_vertex_name = get_edge_begin_vertex_name(edge);
+            adj_list_aux = get_graph_adj_list(graph, ending_vertex_name);
+            if(!on_adj_list(adj_list_aux, ending_vertex_name, begin_vertex_name) && strcmp(ending_vertex_name, begin_vertex_name) != 0){
+                edge_aux = create_edge("aux", get_edge_end_vertex_name(edge), get_edge_begin_vertex_name(edge), "-", "-", get_edge_vm(edge), get_edge_vm(edge)); 
+                add_graph_edge(carlos, edge_aux);
+            }
+        }
+    }
 
 
-
-
-    // grafo pronto, agora só aplicar a função da agm
-    return agm;
+    Graph_t agm;
+    agm = agm_kruskal(carlos);
+    delete_full_graph(carlos);
+    print_graph(agm, qrySVGFile);
+    delete_full_graph(agm);
 }

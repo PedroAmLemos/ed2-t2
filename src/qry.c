@@ -36,9 +36,7 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
         if(strcmp(aux, "rv") == 0){
             fscanf(qryFile, "%lf %lf %lf %lf %lf", &x, &y, &w, &h, &f);
             fprintf(qryTXTFile, "rv\n");
-            agm = rv(city, x, y, w, h, f);
-            print_graph(agm, qrySVGFile);
-            delete_full_graph(agm);
+            rv(city, x, y, w, h, f);
         }
     }
 

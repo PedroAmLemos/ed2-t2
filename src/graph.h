@@ -40,4 +40,10 @@ void add_graph_edge_copy(Graph_t _graph, Edge_t _edge);
 
 void add_graph_vertex_copy(Graph_t _graph, Vertex_t _vertex);
 
+int on_adj_list(AdjList_t _adj, char *begin, char *end);
+
+Graph_t agm_kruskal(Graph_t _graph);
+
+void union_find_remove_aux(Graph_t _graph);
 #endif
+

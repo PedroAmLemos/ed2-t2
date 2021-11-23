@@ -1,9 +1,11 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "edge.h"
-#include "graph.h"
 #include "linked_list.h"
+#include "svg.h"
+#include "edge.h"
+#include "union_find.h"
+#include "graph.h"
 #include "reading_utility.h"
 #include "vertex.h"
 
@@ -96,9 +98,9 @@ Graph_t create_graph_copy(Graph_t graph){
         adj = (AdjList *) get_list_info(node);
         edge_list = adj->edges;
         vertex = adj->start;
-        add_graph_vertex(copy, vertex);
+        add_graph_vertex_copy(copy, vertex);
         for(ListNode_t edge_node = get_list_first(edge_list); edge_node != NULL; edge_node = get_list_next(edge_node)){
-            add_graph_edge(copy, get_list_info(edge_node));
+            add_graph_edge_copy(copy, get_list_info(edge_node));
         }
     }
     return copy;
@@ -128,8 +130,58 @@ void add_graph_vertex_copy(Graph_t _graph, Vertex_t _vertex){
     insert_list(_graph, adj);
 }
 
-Graph_t agm_kruskal(Graph_t _graph){
-
-
+int on_adj_list(AdjList_t _adj, char *begin, char *end){
+    AdjList *adj = (AdjList *) _adj;
+    List_t edge_list = adj->edges;
+    Edge_t edge = NULL;
+    char *begin_vertex = NULL;
+    char *ending_vertex = NULL;
+    for(ListNode_t edge_node = get_list_first(edge_list); edge_node != NULL; edge_node = get_list_next(edge_node)){
+        edge = get_list_info(edge_node);
+        begin_vertex = get_edge_begin_vertex_name(edge);
+        ending_vertex = get_edge_end_vertex_name(edge);
+        if(strcmp(begin_vertex, begin) == 0 && strcmp(ending_vertex, end) == 0){
+            return 1;
+        }
+    }
+    return 0;
 }
 
+Graph_t agm_kruskal(Graph_t _graph){
+
+    List_t edges = create_list();
+    List_t edge_list = NULL;
+    for(ListNode_t node = get_list_first(_graph); node != NULL; node = get_list_next(node)){
+        edge_list = get_graph_edges(get_list_info(node));
+        for(ListNode_t edge_node = get_list_first(edge_list); edge_node != NULL; edge_node = get_list_next(edge_node)){
+            insert_list(edges, get_list_info(edge_node));
+        }
+    }
+
+    quick_sort_edge_list(edges, 0, get_list_size(edges)-1);
+
+    UnionFind_t union_find = create_union_find(_graph);
+    for(ListNode_t node = get_list_first(edges); node != NULL; node = get_list_next(node)){
+        union_union_find(union_find, get_list_info(node));
+    }
+
+    Graph_t agm = NULL;
+    agm = create_graph_copy(get_list_info(get_list_first(union_find)));
+
+    remove_list(union_find, union_find_remove_aux);
+    remove_list(edges, NULL);
+
+    return agm;
+}
+
+void union_find_remove_aux(Graph_t _graph){
+    AdjList_t adj_list = NULL;
+    List_t edge_list = NULL;
+    for(ListNode_t node = get_list_first(_graph); node != NULL; node = get_list_next(node)){
+        adj_list = get_list_info(node);
+        edge_list = get_graph_edges(adj_list);
+        remove_list(edge_list, NULL);
+        free(adj_list);
+    }
+    remove_list(_graph, NULL);
+}

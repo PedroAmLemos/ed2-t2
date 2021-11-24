@@ -62,6 +62,11 @@ void print_rectangle_dashed(double x, double y, double w, double h, FILE *svgFil
 void print_rectangle(double x, double y, double w, double h, char *fill, char *stroke, FILE *svgFile);
 
 void print_graph(Graph_t _graph, FILE *svgFile);
+
 void print_vertex(Vertex_t _vertex, char* vertex_color, FILE* svg_file);
+
+void print_graph_agm(Graph_t _graph, FILE *svgFile);
+
+void print_thick_vertex(Vertex_t _vertex, FILE* svg_file);
 
 #endif //SVG_H_

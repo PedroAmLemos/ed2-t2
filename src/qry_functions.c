@@ -155,6 +155,8 @@ void rv(City_t _city, double x, double y, double w, double h, double f, FILE *qr
     char *begin_vertex_name  = NULL;
     AdjList_t adj_list_aux   = NULL;
 
+    print_rectangle_dashed(x, y, w, h, qrySVGFile);
+
     // criar o novo grafo
     for(ListNode_t node = get_list_first(graph); node != NULL; node = get_list_next(node)){
         adj_list = get_list_info(node);
@@ -192,7 +194,7 @@ void rv(City_t _city, double x, double y, double w, double h, double f, FILE *qr
             begin_vertex_name = get_edge_begin_vertex_name(edge);
             adj_list_aux = get_graph_adj_list(graph, ending_vertex_name);
             if(!on_adj_list(adj_list_aux, ending_vertex_name, begin_vertex_name) && strcmp(ending_vertex_name, begin_vertex_name) != 0){
-                edge_aux = create_edge("aux", get_edge_end_vertex_name(edge), get_edge_begin_vertex_name(edge), "-", "-", get_edge_vm(edge), get_edge_vm(edge)); 
+                edge_aux = create_edge(get_edge_name(edge), get_edge_end_vertex_name(edge), get_edge_begin_vertex_name(edge), "-", "-", get_edge_vm(edge), get_edge_vm(edge)); 
                 add_graph_edge(carlos, edge_aux);
             }
         }
@@ -202,6 +204,7 @@ void rv(City_t _city, double x, double y, double w, double h, double f, FILE *qr
     Graph_t agm;
     agm = agm_kruskal(carlos);
     delete_full_graph(carlos);
-    print_graph(agm, qrySVGFile);
+    print_graph_agm(agm, qrySVGFile);
+    print_thick_vertex(get_graph_vertex(get_list_info(get_list_first(agm))), qrySVGFile);
     delete_full_graph(agm);
 }

@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "hash_table.h"
 #include "linked_list.h"
 #include "svg.h"
 #include "edge.h"
@@ -184,4 +185,53 @@ void union_find_remove_aux(Graph_t _graph){
         free(adj_list);
     }
     remove_list(_graph, NULL);
+}
+
+
+Vertex_t get_adj_list_vertex(AdjList_t _adj_list){
+    AdjList *adj = (AdjList *) _adj_list;
+    return adj->start;
+}
+
+
+Edge_t get_edge_from_vertexes(Graph_t _graph, char* begin_vertex, char *ending_vertex){
+    AdjList_t adj_list = NULL;
+    List_t edge_list = NULL;
+    Edge_t edge = NULL;
+    adj_list = get_graph_adj_list(_graph, begin_vertex);
+    edge_list = get_graph_edges(adj_list);
+    for(ListNode_t edge_node = get_list_first(edge_list); edge_node != NULL; edge_node = get_list_next(edge_node)){
+        edge = get_list_info(edge_node);
+        if(strcmp(ending_vertex, get_edge_end_vertex_name(edge))==0){
+            return edge;
+        }
+    }
+    return NULL;
+}
+
+void dfs(Graph_t _graph, Graph_t _agm_graph, HashTable_t vertex_table, ListNode_t adj_list_node, int cd, double f_in, double f){
+
+    AdjList_t adj_list = get_list_info(adj_list_node);
+    List_t edges = get_graph_edges(adj_list);
+    ListNode_t next_adj_node = NULL;
+    Vertex_t vertex = get_graph_vertex(adj_list);
+
+    insert_hash(vertex_table, get_vertex_name(vertex), vertex);
+
+    Edge_t edge = NULL;
+    Edge_t to_change_edge = NULL;
+
+    for(ListNode_t node = get_list_first(edges); node != NULL; node = get_list_next(node)){
+        edge = get_list_info(node);
+        to_change_edge = get_edge_from_vertexes(_graph, get_edge_begin_vertex_name(edge), get_edge_end_vertex_name(edge));
+        set_edge_vm(to_change_edge, get_edge_vm(edge)*f);
+        //set_edge_vm(to_change_edge_copy, get_edge_vm(edge)*f);
+
+        next_adj_node = get_graph_node(_agm_graph, get_edge_end_vertex_name(edge));
+        if(f+f_in < 1)
+            f = f+f_in;
+        if(get_info_from_key(vertex_table, get_vertex_name(get_graph_vertex(get_list_info(next_adj_node))))== NULL){
+            dfs(_graph, _agm_graph, vertex_table, next_adj_node, cd+1, f_in, f);        
+        }
+    }
 }

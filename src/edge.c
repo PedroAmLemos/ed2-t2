@@ -96,4 +96,15 @@ Edge_t create_edge_copy(Edge_t _edge){
     return result;
 }
 
+void print_edge_txt(Edge_t _edge, FILE *txtFILE){
+    Edge *edge = (Edge*) _edge;
+    fprintf(txtFILE, "ArestaAGM >>>> NOME: %s VERTICE INICIAL: %s VERTICE FINAL: %s VM: %f CMP: %f\n", edge->name, edge->begin_vertex_name, edge->end_vertex_name, edge->vm, edge->cmp);
+}
+
+void set_edge_vm(Edge_t _edge, double new_vm){
+    if(_edge == NULL) return;
+    Edge *edge = (Edge*) _edge;
+    edge->vm = new_vm;
+}
+
 

@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
+#include "edge.h"
 #include "graph.h"
 #include "svg.h"
 #include "union_find.h"

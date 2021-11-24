@@ -3,6 +3,7 @@
 #include <math.h>
 #include <string.h>
 
+#include "hash_table.h"
 #include "reading_utility.h"
 #include "edge.h"
 #include "graph.h"
@@ -206,5 +207,25 @@ void rv(City_t _city, double x, double y, double w, double h, double f, FILE *qr
     delete_full_graph(carlos);
     print_graph_agm(agm, qrySVGFile);
     print_thick_vertex(get_graph_vertex(get_list_info(get_list_first(agm))), qrySVGFile);
+    // todo print to txt and change speeds
+    List_t edges_aux = create_list();
+    for(ListNode_t node = get_list_first(agm); node != NULL; node = get_list_next(node)){
+        adj_list = get_list_info(node);
+        edge_list = get_graph_edges(adj_list);
+        for(ListNode_t edge_node = get_list_first(edge_list); edge_node != NULL; edge_node = get_list_next(edge_node)){
+            edge = get_list_info(edge_node);
+            insert_list(edges_aux, create_edge(get_edge_name(edge), get_edge_end_vertex_name(edge), 
+                        get_edge_begin_vertex_name(edge), "-", "-", get_edge_cmp(edge), get_edge_vm(edge)));
+            print_edge_txt(edge, qryTXTFile);
+        }
+    }
+    for(ListNode_t node = get_list_first(edges_aux); node != NULL; node = get_list_next(node)){
+        add_graph_edge(agm, get_list_info(node));
+    }
+    HashTable_t vertexes_table = create_hash_table(get_list_size(agm));
+
+    dfs(graph, agm, vertexes_table, get_list_first(agm), 0, f, f);
+    delete_hash_table(vertexes_table, 0);
+    remove_list(edges_aux, NULL);
     delete_full_graph(agm);
 }

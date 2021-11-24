@@ -2,6 +2,7 @@
 #define EDGE_H_
 
 #include "linked_list.h"
+#include <stdio.h>
 typedef void* Edge_t;
 
 Edge_t create_edge(char* name, char* begin_vertex_name, char* end_vertex_name, char* ldir, char* lesq, double cmp, double vm);
@@ -25,4 +26,8 @@ double get_edge_time(Edge_t _edge);
 void quick_sort_edge_list(List_t _list, int begin, int end);
 
 Edge_t create_edge_copy(Edge_t _edge);
+
+void print_edge_txt(Edge_t _edge, FILE *txtFILE);
+
+void set_edge_vm(Edge_t _edge, double new_vm);
 #endif

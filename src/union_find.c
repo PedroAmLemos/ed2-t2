@@ -68,8 +68,4 @@ void union_union_find(UnionFind_t _union_find, Edge_t edge){
     }
 }
 
-void delete_union_find(_union_find){
-    // todo
-}
-
 

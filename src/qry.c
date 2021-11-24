@@ -17,8 +17,6 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
     char cep[200], face;
     int num;
     Point_t o_point = NULL;
-    Graph_t agm = NULL;
-
     open_svg(qrySVGFile);
 
     while(fscanf(qryFile, "%s", aux) != EOF){
@@ -36,11 +34,10 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
         if(strcmp(aux, "rv") == 0){
             fscanf(qryFile, "%lf %lf %lf %lf %lf", &x, &y, &w, &h, &f);
             fprintf(qryTXTFile, "rv\n");
-            rv(city, x, y, w, h, f);
+            rv(city, x, y, w, h, f, qrySVGFile, qryTXTFile);
         }
     }
 
     print_tree(get_kd_root(get_blocks_tree(city)), qrySVGFile, print_block);
     free(o_point);
-
 }

@@ -32,7 +32,7 @@ Point_t arroba_o_int(City_t _city, char *cep, char face, int num, FILE *svgFile)
     x1 = get_point_x(point_address);
     y1 = get_point_y(point_address);
     print_line(x1, y1, x1, 0, "black", svgFile);
-    fprintf(svgFile, "\t<text x=\"%.2f\" y=\"10\">CEP:%s FACE:%c NUM: %d</text>\n", x1, cep, face, num);
+    fprintf(svgFile, "\t<text x=\"%.2f\" y=\"10\">CEP: %s FACE: %c NUM: %d</text>\n", x1, cep, face, num);
     return point_address;
 
     // achar o vertice mais proximo considerando um raio máximo de 100
@@ -207,7 +207,10 @@ void rv(City_t _city, double x, double y, double w, double h, double f, FILE *qr
     agm = agm_kruskal(carlos);
     delete_full_graph(carlos);
     print_graph_agm(agm, qrySVGFile);
-    print_thick_vertex(get_graph_vertex(get_list_info(get_list_first(agm))), qrySVGFile);
+    //print_thick_vertex(get_graph_vertex(get_list_info(get_list_first(agm))), qrySVGFile);
+    vertex = get_graph_vertex(get_list_info(get_list_first(agm)));
+    print_line(get_vertex_x(vertex), get_vertex_y(vertex), get_vertex_x(vertex), 0, "black", qrySVGFile);
+    fprintf(qrySVGFile, "\t<text x=\"%.2f\" y=\"0\">rv f=%lf</text>\n", get_vertex_x(vertex), f);
 
     List_t edges_aux = create_list();
     for(ListNode_t node = get_list_first(agm); node != NULL; node = get_list_next(node)){
@@ -268,8 +271,11 @@ void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile){
     AdjList_t adj_list = NULL;
     int index = 0;
     char colors[][50] = {"blue", "green", "yellow", "pink", "purple", "grey", "plum", "seagreen", "indigo", "peru", 
-        "aliceblue", "antiquewhite", "aquamarine", "azure", "beige", "bisque", "blanchedalmond", "blueviolet", "brown", "coral"};
-// cadetblue chartreuse		chocolate	cornflowerblue		cornsilk		crimson	cyan	darkblue		darkcyan		darkgoldenrod	darkgray	darkgreen		darkgrey		darkkhaki	darkmagenta	darkolivegreen		darkorange		darkorchid	darkred	darksalmon		darkseagreen		darkslateblue	darkslategray	darkslategrey		darkturquoise		darkviolet	deeppink	deepskyblue		dimgray		dimgrey	dodgerblue	firebrick		floralwhite		forestgreen	fuchsia	gainsboro		ghostwhite		gold	goldenrod	gray(16)		green(16)		greenyellow	grey(16)	honeydew		hotpink		indianred	indigo	ivory		khaki		lavender	lavenderblush	lawngreen		lemonchiffon		lightblue	lightcoral	lightcyan		lightgoldenrodyellow		lightgray	lightgreen	lightgrey		lightpink		lightsalmon	lightseagreen	lightskyblue		lightslategray(Hex3)		lightslategrey(Hex3)	lightsteelblue	lightyellow				limegreen	linen	magenta		maroon(16)		mediumaquamarine	mediumblue	mediumorchid		mediumpurple		mediumseagreen	mediumslateblue	mediumspringgreen		mediumturquoise		mediumvioletred	midnightblue	mintcream		mistyrose		moccasin	navajowhite	navy(16)		oldlace		olive(16)	olivedrab	orange		orangered		orchid	palegoldenrod	palegreen		paleturquoise		palevioletred	papayawhip	peachpuff		peru		pink	plum	powderblue		purple(16)			rosybrown	royalblue		saddlebrown		salmon	sandybrown	seagreen		seashell		sienna	silver(16)	skyblue		slateblue		slategray	slategrey	snow		springgreen		steelblue	tan	teal(16)		thistle		tomato	turquoise	violet		wheat			whitesmoke	yellowgreen
+                        "aliceblue", "antiquewhite", "aquamarine", "azure", "beige", "bisque", "blanchedalmond", "blueviolet", "brown", "coral",
+                        "cadetblue", "chartreuse", "chocolate", "cornflowerblue", "cornsilk", "crimson", "cyan", "darkblue", "darkcyan", "darkgoldenrod", 
+                        "darkgray", "darkgreen", "darkkhaki", "darkmagenta", "darkolivergreen", "darkorange", "darkorchid", "darkred", "darksalmon", "darkseagreen", 
+                        "darkslateblue", "darkslategray", "darkturquoise", "darkviolet", "deeppink", "deepskyblue"};
+// dimgray		dimgrey	dodgerblue	firebrick		floralwhite		forestgreen	fuchsia	gainsboro		ghostwhite		gold	goldenrod	gray(16)		green(16)		greenyellow	grey(16)	honeydew		hotpink		indianred	indigo	ivory		khaki		lavender	lavenderblush	lawngreen		lemonchiffon		lightblue	lightcoral	lightcyan		lightgoldenrodyellow		lightgray	lightgreen	lightgrey		lightpink		lightsalmon	lightseagreen	lightskyblue		lightslategray(Hex3)		lightslategrey(Hex3)	lightsteelblue	lightyellow				limegreen	linen	magenta		maroon(16)		mediumaquamarine	mediumblue	mediumorchid		mediumpurple		mediumseagreen	mediumslateblue	mediumspringgreen		mediumturquoise		mediumvioletred	midnightblue	mintcream		mistyrose		moccasin	navajowhite	navy(16)		oldlace		olive(16)	olivedrab	orange		orangered		orchid	palegoldenrod	palegreen		paleturquoise		palevioletred	papayawhip	peachpuff		peru		pink	plum	powderblue		purple(16)			rosybrown	royalblue		saddlebrown		salmon	sandybrown	seagreen		seashell		sienna	silver(16)	skyblue		slateblue		slategray	slategrey	snow		springgreen		steelblue	tan	teal(16)		thistle		tomato	turquoise	violet		wheat			whitesmoke	yellowgreen
     for(ListNode_t node = get_list_first(sub_graphs); node != NULL; node = get_list_next(node)){
         graph = get_list_info(node);
         for(ListNode_t node_aux = get_list_first(graph); node_aux != NULL; node_aux = get_list_next(node_aux)){

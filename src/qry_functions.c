@@ -29,6 +29,9 @@ Point_t arroba_o_int(City_t _city, char *cep, char face, int num, FILE *svgFile)
     }
 
     Point_t point_address = get_block_point_face(block_adress, face, num);
+    if(point_address == NULL){
+        return NULL;
+    }
     x1 = get_point_x(point_address);
     y1 = get_point_y(point_address);
     print_line(x1, y1, x1, 0, "black", svgFile);

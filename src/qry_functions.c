@@ -273,20 +273,23 @@ void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile){
     Vertex_t vertex = NULL;
     AdjList_t adj_list = NULL;
     int index = 0;
-    char colors[][50] = {"blue", "green", "yellow", "pink", "purple", "grey", "plum", "seagreen", "indigo", "peru", 
-                        "aliceblue", "antiquewhite", "aquamarine", "azure", "beige", "bisque", "blanchedalmond", "blueviolet", "brown", "coral",
+    char colors[][45] = {"blue", "green", "yellow", "pink", "purple", "grey", "plum", "seagreen", "indigo", "peru", 
+                        "aliceblue", "aquamarine", "azure", "beige", "bisque", "blanchedalmond", "blueviolet", "brown", "coral",
                         "cadetblue", "chartreuse", "chocolate", "cornflowerblue", "cornsilk", "crimson", "cyan", "darkblue", "darkcyan", "darkgoldenrod", 
                         "darkgray", "darkgreen", "darkkhaki", "darkmagenta", "darkolivergreen", "darkorange", "darkorchid", "darkred", "darksalmon", "darkseagreen", 
                         "darkslateblue", "darkslategray", "darkturquoise", "darkviolet", "deeppink", "deepskyblue"};
 // dimgray		dimgrey	dodgerblue	firebrick		floralwhite		forestgreen	fuchsia	gainsboro		ghostwhite		gold	goldenrod	gray(16)		green(16)		greenyellow	grey(16)	honeydew		hotpink		indianred	indigo	ivory		khaki		lavender	lavenderblush	lawngreen		lemonchiffon		lightblue	lightcoral	lightcyan		lightgoldenrodyellow		lightgray	lightgreen	lightgrey		lightpink		lightsalmon	lightseagreen	lightskyblue		lightslategray(Hex3)		lightslategrey(Hex3)	lightsteelblue	lightyellow				limegreen	linen	magenta		maroon(16)		mediumaquamarine	mediumblue	mediumorchid		mediumpurple		mediumseagreen	mediumslateblue	mediumspringgreen		mediumturquoise		mediumvioletred	midnightblue	mintcream		mistyrose		moccasin	navajowhite	navy(16)		oldlace		olive(16)	olivedrab	orange		orangered		orchid	palegoldenrod	palegreen		paleturquoise		palevioletred	papayawhip	peachpuff		peru		pink	plum	powderblue		purple(16)			rosybrown	royalblue		saddlebrown		salmon	sandybrown	seagreen		seashell		sienna	silver(16)	skyblue		slateblue		slategray	slategrey	snow		springgreen		steelblue	tan	teal(16)		thistle		tomato	turquoise	violet		wheat			whitesmoke	yellowgreen
     for(ListNode_t node = get_list_first(sub_graphs); node != NULL; node = get_list_next(node)){
         graph = get_list_info(node);
+        fprintf(qryTXTFile, "\nRegião: \n");
         for(ListNode_t node_aux = get_list_first(graph); node_aux != NULL; node_aux = get_list_next(node_aux)){
             adj_list = get_list_info(node_aux);
             vertex = get_graph_vertex(adj_list);
-            print_circle(get_vertex_x(vertex), get_vertex_y(vertex), 15, colors[index], colors[index], "0", qrySVGFile);
+            fprintf(qryTXTFile, "VERTICE >> ID: %s X: %lf Y: %lf\n", get_vertex_name(vertex), get_vertex_x(vertex), get_vertex_y(vertex));
+            print_circle(get_vertex_x(vertex), get_vertex_y(vertex), 15, colors[index % 46], colors[index], "0", qrySVGFile);
         }
         index++;
+        fprintf(qryTXTFile, "Fim da região: \n\n");
     }
     remove_list(edges, NULL);
     delete_full_graph(streets_graph_copy);

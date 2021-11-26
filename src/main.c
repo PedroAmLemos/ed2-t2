@@ -43,10 +43,10 @@ int main(int argc, char *argv[]){
             }
             qry = malloc((strlen(argv[i]) + 1) * sizeof(char));
             strcpy(qry, argv[i]);
-        } else if (strcmp("-via", argv[i]) == 0) {
+        } else if (strcmp("-v", argv[i]) == 0) {
             i++;
             if (argv[i] == NULL) {
-                printf("Erro - Sem parâmetros em -via\n");
+                printf("Erro - Sem parâmetros em -v\n");
                 exit(1);
             }
             via = malloc((strlen(argv[i]) + 1) * sizeof(char));

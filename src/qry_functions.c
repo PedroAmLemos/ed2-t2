@@ -15,6 +15,7 @@
 #include "linked_list.h"
 #include "qry_utils.h"
 #include "svg.h"
+#include "union_find.h"
 #include "vertex.h"
 
 Point_t arroba_o_int(City_t _city, char *cep, char face, int num, FILE *svgFile){
@@ -207,7 +208,7 @@ void rv(City_t _city, double x, double y, double w, double h, double f, FILE *qr
     delete_full_graph(carlos);
     print_graph_agm(agm, qrySVGFile);
     print_thick_vertex(get_graph_vertex(get_list_info(get_list_first(agm))), qrySVGFile);
-    // todo print to txt and change speeds
+
     List_t edges_aux = create_list();
     for(ListNode_t node = get_list_first(agm); node != NULL; node = get_list_next(node)){
         adj_list = get_list_info(node);
@@ -228,4 +229,58 @@ void rv(City_t _city, double x, double y, double w, double h, double f, FILE *qr
     delete_hash_table(vertexes_table, 0);
     remove_list(edges_aux, NULL);
     delete_full_graph(agm);
+}
+
+
+void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile){
+    Graph_t streets_graph = get_street_graph(city);
+    Graph_t streets_graph_copy = create_graph_copy(streets_graph);
+    Graph_t graph = NULL;
+    List_t edges = create_list();
+    List_t edge_list = NULL;
+
+
+
+
+    //Vertex_t begin = NULL;
+    //Vertex_t end = NULL;
+    for(ListNode_t node = get_list_first(streets_graph); node != NULL; node = get_list_next(node)){
+        edge_list = get_graph_edges(get_list_info(node));
+        for(ListNode_t edge_node = get_list_first(edge_list); edge_node != NULL; edge_node = get_list_next(edge_node)){
+            if(get_edge_vm(get_list_info(edge_node))>= limiar){
+                insert_list(edges, get_list_info(edge_node));
+            }
+            //else{
+            //    begin = get_graph_adj_list_vertex(streets_graph, get_edge_begin_vertex_name(get_list_info(edge_node)));
+            //    end = get_graph_adj_list_vertex(streets_graph, get_edge_end_vertex_name(get_list_info(edge_node)));
+            //    //print_line(get_vertex_x(begin), get_vertex_y(begin), get_vertex_x(end), get_vertex_y(end), "red", teste);
+            //}
+        }
+    }
+
+    UnionFind_t sub_graphs = create_union_find(streets_graph_copy);
+
+    for(ListNode_t node = get_list_first(edges); node != NULL; node = get_list_next(node)){
+        union_union_find(sub_graphs, get_list_info(node));
+    }
+
+    Vertex_t vertex = NULL;
+    AdjList_t adj_list = NULL;
+    int index = 0;
+    char colors[][50] = {"blue", "green", "yellow", "pink", "purple", "grey", "plum", "seagreen", "indigo", "peru", 
+        "aliceblue", "antiquewhite", "aquamarine", "azure", "beige", "bisque", "blanchedalmond", "blueviolet", "brown", "coral"};
+// cadetblue chartreuse		chocolate	cornflowerblue		cornsilk		crimson	cyan	darkblue		darkcyan		darkgoldenrod	darkgray	darkgreen		darkgrey		darkkhaki	darkmagenta	darkolivegreen		darkorange		darkorchid	darkred	darksalmon		darkseagreen		darkslateblue	darkslategray	darkslategrey		darkturquoise		darkviolet	deeppink	deepskyblue		dimgray		dimgrey	dodgerblue	firebrick		floralwhite		forestgreen	fuchsia	gainsboro		ghostwhite		gold	goldenrod	gray(16)		green(16)		greenyellow	grey(16)	honeydew		hotpink		indianred	indigo	ivory		khaki		lavender	lavenderblush	lawngreen		lemonchiffon		lightblue	lightcoral	lightcyan		lightgoldenrodyellow		lightgray	lightgreen	lightgrey		lightpink		lightsalmon	lightseagreen	lightskyblue		lightslategray(Hex3)		lightslategrey(Hex3)	lightsteelblue	lightyellow				limegreen	linen	magenta		maroon(16)		mediumaquamarine	mediumblue	mediumorchid		mediumpurple		mediumseagreen	mediumslateblue	mediumspringgreen		mediumturquoise		mediumvioletred	midnightblue	mintcream		mistyrose		moccasin	navajowhite	navy(16)		oldlace		olive(16)	olivedrab	orange		orangered		orchid	palegoldenrod	palegreen		paleturquoise		palevioletred	papayawhip	peachpuff		peru		pink	plum	powderblue		purple(16)			rosybrown	royalblue		saddlebrown		salmon	sandybrown	seagreen		seashell		sienna	silver(16)	skyblue		slateblue		slategray	slategrey	snow		springgreen		steelblue	tan	teal(16)		thistle		tomato	turquoise	violet		wheat			whitesmoke	yellowgreen
+    for(ListNode_t node = get_list_first(sub_graphs); node != NULL; node = get_list_next(node)){
+        graph = get_list_info(node);
+        for(ListNode_t node_aux = get_list_first(graph); node_aux != NULL; node_aux = get_list_next(node_aux)){
+            adj_list = get_list_info(node_aux);
+            vertex = get_graph_vertex(adj_list);
+            print_circle(get_vertex_x(vertex), get_vertex_y(vertex), 15, colors[index], colors[index], "0", qrySVGFile);
+        }
+        index++;
+    }
+    remove_list(edges, NULL);
+    delete_full_graph(streets_graph_copy);
+    remove_list(sub_graphs, union_find_remove_aux);
+
 }

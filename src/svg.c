@@ -36,7 +36,7 @@ void print_text(double x, double y, char text[], FILE *svgFile){
 }
 
 void print_circle(double cx, double cy, double r, char stroke[], char fill[], char sw[], FILE *svgFile){
-    fprintf(svgFile, "\t<circle cx=\"%.2lf\" cy=\"%.2lf\" r=\"%.2f\" stroke=\"%s\" fill=\"%s\" stroke-width=\"%s\"/>\n", cx, cy, r, stroke, fill, sw);
+    fprintf(svgFile, "\t<circle cx=\"%.2lf\" cy=\"%.2lf\" r=\"%.2f\" stroke=\"%s\" fill=\"%s\" stroke-width=\"%s\" opacity=\"0.6\"/>\n", cx, cy, r, stroke, fill, sw);
 }
 
 void print_rectangle_dashed(double x, double y, double w, double h, FILE *svgFile){

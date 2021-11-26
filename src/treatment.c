@@ -36,9 +36,6 @@ void main_treatment(FILE *geoFile, FILE *qryFile, FILE *viaFile, FILE *geoSVGFil
     }
     open_svg(geoSVGFile);
     print_tree(get_kd_root(blocks_tree), geoSVGFile, print_block);
-    close_svg(geoSVGFile);
-
-
     if(viaFile){
         char id[200], ldir[200], lesq[200], name[200], i[200], j[200];
         double cmp, vm, point[2];
@@ -59,16 +56,18 @@ void main_treatment(FILE *geoFile, FILE *qryFile, FILE *viaFile, FILE *geoSVGFil
                 add_graph_edge(street_graph, edge);
             }
         }
+        print_graph(get_street_graph(city), geoSVGFile);
     }
+    close_svg(geoSVGFile);
 
     if(qryFile){
         qry_treat(city, qryFile, qrySVGFile, qryTXTFile);
-    }
-    if(viaFile){
-        print_graph(get_street_graph(city), qrySVGFile);
+        close_svg(qrySVGFile);
+        if(viaFile){
+            print_graph(get_street_graph(city), qrySVGFile);
+        }
     }
 
-    close_svg(qrySVGFile);
 
     delete_city(city);
 }

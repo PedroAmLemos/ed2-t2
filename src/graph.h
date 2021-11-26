@@ -19,7 +19,7 @@ List_t get_graph_edges(AdjList_t _adj);
 
 AdjList_t get_graph_adj_list(Graph_t _graph, char* vertex_name);
 
-AdjList_t get_graph_adj_list_vertex(Graph_t _graph, char* vertex_name);
+Vertex_t get_graph_adj_list_vertex(Graph_t _graph, char* vertex_name);
 
 ListNode_t get_graph_node(Graph_t _graph, char* vertex_name);
 

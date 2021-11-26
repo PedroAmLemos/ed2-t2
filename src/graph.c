@@ -39,7 +39,7 @@ AdjList_t get_graph_adj_list(Graph_t _graph, char* vertex_name){
     return NULL;
 }
 
-AdjList_t get_graph_adj_list_vertex(Graph_t _graph, char* vertex_name){
+Vertex_t get_graph_adj_list_vertex(Graph_t _graph, char* vertex_name){
     AdjList *al;
     al = (AdjList*) get_graph_adj_list(_graph, vertex_name);
     return al->start;

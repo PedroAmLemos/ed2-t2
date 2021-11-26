@@ -62,10 +62,10 @@ void main_treatment(FILE *geoFile, FILE *qryFile, FILE *viaFile, FILE *geoSVGFil
 
     if(qryFile){
         qry_treat(city, qryFile, qrySVGFile, qryTXTFile);
-        close_svg(qrySVGFile);
         if(viaFile){
             print_graph(get_street_graph(city), qrySVGFile);
         }
+        close_svg(qrySVGFile);
     }
 
 

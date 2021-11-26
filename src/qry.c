@@ -12,8 +12,7 @@
 
 void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
     char aux[5];
-    // char cep[25], cpf[20], side, compl[25], id[50], dmptFilename[50];
-    double x, y, w, h, f;
+    double x, y, w, h, f, limiar;
     char cep[200], face;
     int num;
     Point_t o_point = NULL;
@@ -35,6 +34,11 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
             fscanf(qryFile, "%lf %lf %lf %lf %lf", &x, &y, &w, &h, &f);
             fprintf(qryTXTFile, "rv\n");
             rv(city, x, y, w, h, f, qrySVGFile, qryTXTFile);
+        }
+        if(strcmp(aux, "cx") == 0){
+            fscanf(qryFile, "%lf", &limiar);
+            fprintf(qryTXTFile, "cx\n");
+            //cx(city, limiar, qrySVGFile, qryTXTFile);
         }
     }
 

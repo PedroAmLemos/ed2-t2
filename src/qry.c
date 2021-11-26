@@ -38,7 +38,7 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
         if(strcmp(aux, "cx") == 0){
             fscanf(qryFile, "%lf", &limiar);
             fprintf(qryTXTFile, "cx\n");
-            //cx(city, limiar, qrySVGFile, qryTXTFile);
+            cx(city, limiar, qrySVGFile, qryTXTFile);
         }
     }
 

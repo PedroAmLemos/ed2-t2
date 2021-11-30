@@ -31,6 +31,11 @@ void print_thick_line(double x1, double y1, double x2, double y2, char stroke[],
             x1, y1, x2, y2, stroke);
 }
 
+void print_thicker_line(double x1, double y1, double x2, double y2, char stroke[], FILE *svgFile){
+    fprintf(svgFile, "\t<line x1=\"%.2f\" y1=\"%.2f\" x2=\"%.2f\" y2=\"%.2f\" stroke=\"%s\" opacity=\"1\" stroke-width=\"8px\"/>\n",
+            x1, y1, x2, y2, stroke);
+}
+
 void print_text(double x, double y, char text[], FILE *svgFile){
    fprintf(svgFile, "\t<text x=\"%.2f\" y=\"%.2f\">%s</text>\n", x, y, text);
 }

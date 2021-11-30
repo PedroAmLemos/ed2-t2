@@ -248,19 +248,19 @@ void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile){
 
 
 
-    //Vertex_t begin = NULL;
-    //Vertex_t end = NULL;
+    Vertex_t begin = NULL;
+    Vertex_t end = NULL;
     for(ListNode_t node = get_list_first(streets_graph); node != NULL; node = get_list_next(node)){
         edge_list = get_graph_edges(get_list_info(node));
         for(ListNode_t edge_node = get_list_first(edge_list); edge_node != NULL; edge_node = get_list_next(edge_node)){
             if(get_edge_vm(get_list_info(edge_node))>= limiar){
                 insert_list(edges, get_list_info(edge_node));
             }
-            //else{
-            //    begin = get_graph_adj_list_vertex(streets_graph, get_edge_begin_vertex_name(get_list_info(edge_node)));
-            //    end = get_graph_adj_list_vertex(streets_graph, get_edge_end_vertex_name(get_list_info(edge_node)));
-            //    //print_line(get_vertex_x(begin), get_vertex_y(begin), get_vertex_x(end), get_vertex_y(end), "red", teste);
-            //}
+            else{
+                begin = get_graph_adj_list_vertex(streets_graph, get_edge_begin_vertex_name(get_list_info(edge_node)));
+                end = get_graph_adj_list_vertex(streets_graph, get_edge_end_vertex_name(get_list_info(edge_node)));
+                print_thicker_line(get_vertex_x(begin), get_vertex_y(begin), get_vertex_x(end), get_vertex_y(end), "red", qrySVGFile);
+            }
         }
     }
 
@@ -277,8 +277,9 @@ void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile){
                         "aliceblue", "aquamarine", "azure", "beige", "bisque", "blanchedalmond", "blueviolet", "brown", "coral",
                         "cadetblue", "chartreuse", "chocolate", "cornflowerblue", "cornsilk", "crimson", "cyan", "darkblue", "darkcyan", "darkgoldenrod", 
                         "darkgray", "darkgreen", "darkkhaki", "darkmagenta", "darkolivergreen", "darkorange", "darkorchid", "darkred", "darksalmon", "darkseagreen", 
-                        "darkslateblue", "darkslategray", "darkturquoise", "darkviolet", "deeppink", "deepskyblue"};
-// dimgray		dimgrey	dodgerblue	firebrick		floralwhite		forestgreen	fuchsia	gainsboro		ghostwhite		gold	goldenrod	gray(16)		green(16)		greenyellow	grey(16)	honeydew		hotpink		indianred	indigo	ivory		khaki		lavender	lavenderblush	lawngreen		lemonchiffon		lightblue	lightcoral	lightcyan		lightgoldenrodyellow		lightgray	lightgreen	lightgrey		lightpink		lightsalmon	lightseagreen	lightskyblue		lightslategray(Hex3)		lightslategrey(Hex3)	lightsteelblue	lightyellow				limegreen	linen	magenta		maroon(16)		mediumaquamarine	mediumblue	mediumorchid		mediumpurple		mediumseagreen	mediumslateblue	mediumspringgreen		mediumturquoise		mediumvioletred	midnightblue	mintcream		mistyrose		moccasin	navajowhite	navy(16)		oldlace		olive(16)	olivedrab	orange		orangered		orchid	palegoldenrod	palegreen		paleturquoise		palevioletred	papayawhip	peachpuff		peru		pink	plum	powderblue		purple(16)			rosybrown	royalblue		saddlebrown		salmon	sandybrown	seagreen		seashell		sienna	silver(16)	skyblue		slateblue		slategray	slategrey	snow		springgreen		steelblue	tan	teal(16)		thistle		tomato	turquoise	violet		wheat			whitesmoke	yellowgreen
+                        "darkslateblue", "darkslategray", "darkturquoise", "darkviolet", "deeppink", "deepskyblue", "dimgray", "dodgerblue", "firebrick", "floralwhite", 
+                        "forestgreen", "fuchsia", "gainsboro", "ghostwhite", "gold", "goldenrod", "gray", "goldenrod", "greenyellow", "honeydew"};
+                        //"hotpinkl", "indigo", "ivory", 		"khaki",		"lavender"	"lavenderblush"	"lawngreen"		"lemonchiffon"		"lightblue"	"lightcoral"	"lightcyan"		"lightgoldenrodyellow"		"lightgray"	"lightgreen"	"lightgrey"		"lightpink"		"lightsalmon"	"lightseagreen"	"lightskyblue"		"lightslategray"("Hex3")		"lightslategrey"("Hex3")	"lightsteelblue"	"lightyellow"				"limegreen"	"linen"	"magenta"		"maroon"("16")		"mediumaquamarine"	"mediumblue"	"mediumorchid"		"mediumpurple"		"mediumseagreen"	"mediumslateblue"	"mediumspringgreen"		"mediumturquoise"		"mediumvioletred"	"midnightblue"	"mintcream"		"mistyrose"		"moccasin"	"navajowhite"	"navy"("16")		"oldlace"		"olive"("16")	"olivedrab"	"orange"		"orangered"		"orchid"	"palegoldenrod"	"palegreen"		"paleturquoise"		"palevioletred"	"papayawhip"	"peachpuff"		"peru"		"pink"	"plum"	"powderblue"		"purple"("16")			"rosybrown"	"royalblue"		"saddlebrown"		"salmon"	"sandybrown"	"seagreen"		"seashell"		"sienna"	"silver"("16")	"skyblue"		"slateblue"		"slategray"	"slategrey"	"snow"		"springgreen"		"steelblue"	"tan"	"teal"("16")		"thistle"		"tomato"	"turquoise"	"violet"		"wheat"	"whitesmoke" "yellowgreen"
     for(ListNode_t node = get_list_first(sub_graphs); node != NULL; node = get_list_next(node)){
         graph = get_list_info(node);
         fprintf(qryTXTFile, "\nRegião: \n");
@@ -294,5 +295,4 @@ void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile){
     remove_list(edges, NULL);
     delete_full_graph(streets_graph_copy);
     remove_list(sub_graphs, union_find_remove_aux);
-
 }

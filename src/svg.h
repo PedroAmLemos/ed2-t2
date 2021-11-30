@@ -69,4 +69,6 @@ void print_graph_agm(Graph_t _graph, FILE *svgFile);
 
 void print_thick_vertex(Vertex_t _vertex, FILE* svg_file);
 
+void print_thicker_line(double x1, double y1, double x2, double y2, char stroke[], FILE *svgFile);
+
 #endif //SVG_H_

@@ -12,13 +12,14 @@
 #include "block.h"
 #include "city.h"
 #include "kdtree.h"
+#include "kdtree.h"
 #include "linked_list.h"
 #include "qry_utils.h"
 #include "svg.h"
 #include "union_find.h"
 #include "vertex.h"
 
-Point_t arroba_o_int(City_t _city, char *cep, char face, int num, FILE *svgFile){
+Point_t arroba_o_int(City_t _city, char *cep, char face, int num, FILE *svgFile, int flag){
     double x1, y1;
     KDTree_t blocks_tree = get_blocks_tree(_city);
     Block_t block_adress = NULL;
@@ -34,37 +35,11 @@ Point_t arroba_o_int(City_t _city, char *cep, char face, int num, FILE *svgFile)
     }
     x1 = get_point_x(point_address);
     y1 = get_point_y(point_address);
-    print_line(x1, y1, x1, 0, "black", svgFile);
-    fprintf(svgFile, "\t<text x=\"%.2f\" y=\"10\">CEP: %s FACE: %c NUM: %d</text>\n", x1, cep, face, num);
+    if(flag){
+        print_line(x1, y1, x1, 0, "black", svgFile);
+        fprintf(svgFile, "\t<text x=\"%.2f\" y=\"10\">CEP: %s FACE: %c NUM: %d</text>\n", x1, cep, face, num);
+    }
     return point_address;
-
-    // achar o vertice mais proximo considerando um raio máximo de 100
-    //Graph_t graph = get_street_graph(_city);
-    //AdjList_t adj = NULL;
-    //Vertex_t vertex = NULL, smaller_dist_vertex = NULL;
-    //Point_t vertex_point = NULL;
-    //double smaller_dist = INFINITY, x2, y2, dist;
-    //for(ListNode_t node = get_list_first(graph); node != NULL; node = get_list_next(node)){
-    //    adj = get_list_info(node);
-    //    for(ListNode_t adj_node = get_list_first(graph); adj_node != NULL; adj_node = get_list_next(adj_node)){
-    //        vertex = get_graph_vertex(adj);
-    //        vertex_point = get_vertex_point(vertex);
-    //        x2 = get_point_x(vertex_point);
-    //        y2 = get_point_y(vertex_point);
-    //        dist = sqrt(pow(x2-x1, 2) + pow(y2-y1, 2));
-    //        if(dist < 0){
-    //            dist = dist * (-1);
-    //        }
-    //        if(dist < smaller_dist){
-    //            smaller_dist = dist;
-    //            smaller_dist_vertex = vertex;
-    //        }
-    //    }
-    //}
-    //if(smaller_dist > 100){
-    //    return NULL;
-    //}
-    //return vertex;
 }
 
 void catac(City_t _city, double x, double y, double w, double h, FILE *qrySVGFile, FILE *qryTXTFile){
@@ -295,4 +270,39 @@ void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile){
     remove_list(edges, NULL);
     delete_full_graph(streets_graph_copy);
     remove_list(sub_graphs, union_find_remove_aux);
+}
+
+void p_i(City_t _city, Point_t start_point, char *cep, char face, int num, FILE *svgFile, FILE *txtFile){
+    Graph_t graph = get_street_graph(_city);
+    Point_t end_point = arroba_o_int(_city, cep, face, num, svgFile, 0);
+
+    if(start_point == NULL || end_point == NULL){
+        return;
+    }
+
+    Vertex_t start = get_closest_vertex(graph, start_point);
+    Vertex_t end = get_closest_vertex(graph, end_point);
+    printf("%s\n", get_vertex_name(start));
+    printf("%s\n", get_vertex_name(end));
+
+    if(start == NULL){
+        return;
+    }
+    if(end == NULL){
+        return;
+    }
+
+
+    double total_dist = 0;
+    List_t shortest_path = dijkstra(graph, start, end, &total_dist, get_edge_cmp);
+    total_dist = 0;
+    List_t quickest_path = dijkstra(graph, start, end, &total_dist, get_edge_vm);
+
+    for(ListNode_t node = get_list_first(shortest_path); node != NULL; node = get_list_next(node)){
+        printf("%s\n", (char*) get_list_info(node));
+    }
+    for(ListNode_t node = get_list_first(quickest_path); node != NULL; node = get_list_next(node)){
+        printf("%s\n", (char*) get_list_info(node));
+    }
+    free(end_point);
 }

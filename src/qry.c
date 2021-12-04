@@ -22,7 +22,7 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
         if(strcmp(aux, "@o?") == 0){
             fscanf(qryFile, "%s %s %d", cep, &face, &num);
             fprintf(qryTXTFile, "@o?\n\n");
-            o_point = arroba_o_int(city, cep, face, num, qrySVGFile);
+            o_point = arroba_o_int(city, cep, face, num, qrySVGFile, 1);
         }
         if(strcmp(aux, "catac") == 0){
             fscanf(qryFile, "%lf %lf %lf %lf", &x, &y, &w, &h);
@@ -39,6 +39,11 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
             fscanf(qryFile, "%lf", &limiar);
             fprintf(qryTXTFile, "cx\n");
             cx(city, limiar, qrySVGFile, qryTXTFile);
+        }
+        if(strcmp(aux, "p?") == 0){
+            fscanf(qryFile, "%lf", &limiar);
+            fscanf(qryFile, "%s %s %d", cep, &face, &num);
+            p_i(city, o_point, cep, face, num, qrySVGFile, qryTXTFile);
         }
     }
 

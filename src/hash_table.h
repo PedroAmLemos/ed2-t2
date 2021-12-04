@@ -65,6 +65,7 @@ Item_t get_item(HashTable_t _hashtable, char key[]);
 int get_table_size(HashTable_t *_hashTable);
 void *get_item_info(Item_t _item);
 List_t *get_table(HashTable_t _hashTable);
+void change_value(HashTable_t _hashTable, char *key, Info_t new);
 
 
 #endif // HASH_TABLE_H_

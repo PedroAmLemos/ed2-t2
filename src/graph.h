@@ -48,5 +48,7 @@ Graph_t agm_kruskal(Graph_t _graph);
 void union_find_remove_aux(Graph_t _graph);
 
 void dfs(Graph_t _graph, Graph_t _agm_graph, HashTable_t vertex_table, ListNode_t adj_list_node, int cd, double f_in, double f);
+
+List_t dijkstra(Graph_t _graph, Vertex_t begin, Vertex_t end, double *total_dist, double get_weight(Edge_t _edge));
 #endif
 

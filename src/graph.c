@@ -235,3 +235,92 @@ void dfs(Graph_t _graph, Graph_t _agm_graph, HashTable_t vertex_table, ListNode_
         }
     }
 }
+
+List_t dijkstra(Graph_t _graph, Vertex_t begin, Vertex_t end, double *total_dist, double get_weight(Edge_t _edge)){
+    char *name_begin = get_vertex_name(begin), *name_end = get_vertex_name(end);
+    List_t remaining = create_list();
+    HashTable_t distance = create_hash_table(500);
+    HashTable_t previous = create_hash_table(500);
+
+    double *aux = malloc(sizeof(double));
+    *aux = 0;
+
+
+    insert_hash(distance, name_begin, aux);
+    for(Node_t *node = get_list_first(_graph); node != NULL; node = get_list_next(node)){
+        insert_list(remaining, get_vertex_name(get_graph_vertex(get_list_info(node))));
+    }
+
+
+    while(1){
+        AdjList_t adj_list = get_graph_adj_list(_graph, name_begin);
+        double *previous_dist = (double *) get_info_from_key(distance, name_begin);
+        for(Node_t aux = get_list_first(get_graph_edges(adj_list)); aux != NULL; aux = get_list_next(aux)){
+            Edge_t edge = get_list_info(aux);
+            char *id_aux = get_edge_end_vertex_name(edge); 
+            double *dist = get_info_from_key(distance, id_aux);
+
+            if(is_string_in_list(remaining, name_begin)){
+                if(dist == NULL){
+                    double *dist_temp = malloc(sizeof(double));
+                    *dist_temp = get_weight(edge) + *previous_dist;
+                    insert_hash(distance, id_aux, dist_temp);
+                    char *temp_id = malloc(sizeof(char) * (strlen(name_begin)) + 500);
+                    strcpy(temp_id, name_begin);
+                    insert_hash(previous, id_aux, temp_id);
+                }else if(*dist > get_weight(edge) + *previous_dist){
+                    *dist = get_weight(edge) + *previous_dist;
+                    free(get_info_from_key(previous, id_aux));
+                    char *temp_id = malloc(sizeof(char) * (strlen(name_begin) + 1));
+                    strcpy(temp_id, name_begin);
+                    change_value(previous, id_aux, temp_id);
+                }
+            }
+        }
+        if(strcmp(name_begin, name_end) == 0){
+            *total_dist = *(double*)get_info_from_key(distance, name_end);
+            break;
+        }
+        double small;
+        int flag = 1;
+        char previous_id[100];
+        strcpy(previous_id, name_begin);
+        Node_t node = get_list_first(remaining);
+        while(node != NULL){
+            if(strcmp(get_list_info(node), previous_id) == 0){
+                Node_t visited = node;
+                node = get_list_next(node);
+                remove_list_node(remaining, visited, NULL);
+                continue;
+            }
+            double *value = get_info_from_key(distance, get_list_info(node));
+            if(value != NULL && (flag || small > *value)) {
+                small = *value;
+                name_begin = get_list_info(node);
+                flag = 0;
+            }
+            node = get_list_next(node);
+        }
+        if(flag){
+            *total_dist = 0;
+            delete_hash_table(distance, 0);
+            delete_hash_table(previous, 0);
+            remove_list(remaining, NULL);
+            return NULL;
+        }
+    }
+    List_t path = create_list();
+    while(name_end != NULL){
+        char *path_aux = malloc(sizeof(char) * (strlen(name_end)+1));
+        strcpy(path_aux, name_end);
+        insert_list(path, path_aux);
+        name_end = get_info_from_key(previous, name_end);
+    }
+    delete_hash_table(distance, 0);
+    delete_hash_table(previous, 0);
+    remove_list(remaining, NULL);
+
+    List_t inverted_path = reverse_linked_list(path);
+
+    return inverted_path;
+}

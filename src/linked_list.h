@@ -59,4 +59,6 @@ void get_points_inside(List_t _list, List_t storage, double x, double y, double 
 ListNode_t get_list_index_node(List_t _list, int index);
 
 void swap_list_info(ListNode_t _a, ListNode_t _b);
+int is_string_in_list(List_t _list, char *text);
+List_t reverse_linked_list(List_t _list);
 #endif // LINKED_LIST_H_

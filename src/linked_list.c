@@ -1,4 +1,6 @@
 #include "linked_list.h"
+#include "hash_table.h"
+#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -86,6 +88,10 @@ ListNode_t get_list_next(ListNode_t node_){
     Node *list = (Node*) node_;
     return list->next;
 }
+ListNode_t get_list_previous(ListNode_t node_){
+    Node *list = (Node*) node_;
+    return list->prev;
+}
 
 ListInfo_t get_list_info(ListNode_t node_){
     Node *list = (Node*) node_;
@@ -119,11 +125,21 @@ void swap_list_info(ListNode_t _a, ListNode_t _b) {
     b->info = aux;
 }
 
+int is_string_in_list(List_t _list, char *text){
+    for(Node_t node = get_list_first(_list); node != NULL; node = get_list_next(node)){
+        if(strcmp(get_list_info(node), text)==0){
+            return 1;
+        }
+    }
+    return 0;
+}
 
 
-
-
-
-
-
+List_t reverse_linked_list(List_t _list){
+    List *reverse = create_list();
+    for(Node_t node = get_list_last(_list); node != NULL; node = get_list_previous(node)){
+        insert_list(reverse, get_list_info(node));
+    }
+    return reverse;
+}
 

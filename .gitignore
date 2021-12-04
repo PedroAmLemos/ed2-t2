@@ -9,6 +9,7 @@
 /cmake-build-release---mingw/
 /cmake-build-default-wsl/
 /cmake-build-debug-wsl/
+/src/.clangd
 src/t2
 
 .cache/clangd/index

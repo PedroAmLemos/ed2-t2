@@ -153,3 +153,21 @@ List_t get_index_list(HashTable_t _hashTable, int index){
     }
     return NULL;
 }
+
+void set_item(Item_t _item, Info_t value){
+    HashTableItem *item = (HashTableItem*) _item;
+    item->info = value;
+}
+
+void change_value(HashTable_t _hashTable, char *key, Info_t new){
+    Hash *hashTable = (Hash*)_hashTable;
+    int hash_key = hash_function(key, hashTable->size);
+
+    for(Node_t aux = get_list_first(hashTable->table[hash_key]); aux != NULL; aux = get_list_next(aux)){
+        Info_t i = get_list_info(aux);
+        if(strcmp(get_item_key(i), key) == 0){
+            set_item(i, new);
+            return;
+        }
+    }
+}

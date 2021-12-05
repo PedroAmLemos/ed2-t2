@@ -90,6 +90,14 @@ void delete_full_graph(Graph_t _graph){
     delete_graph(_graph);
 }
 
+void delete_graph_lists(Graph_t _graph){
+    for(ListNode_t node = get_list_first(_graph); node != NULL; node = get_list_next(node)){
+        remove_list(get_list_info(node), NULL);
+    }
+
+    remove_list(_graph, NULL);
+}
+
 Graph_t create_graph_copy(Graph_t graph){
     Graph_t copy = create_graph();
     AdjList *adj = NULL;
@@ -194,6 +202,18 @@ Vertex_t get_adj_list_vertex(AdjList_t _adj_list){
 }
 
 
+Edge_t get_edge_from_vertexes_adj_list(AdjList_t _adj_list, char *ending_vertex){
+    List_t edge_list = get_graph_edges(_adj_list);
+    Edge_t edge = NULL;
+    for(ListNode_t edge_node = get_list_first(edge_list); edge_node != NULL; edge_node = get_list_next(edge_node)){
+        edge = get_list_info(edge_node);
+        if(strcmp(ending_vertex, get_edge_end_vertex_name(edge))==0){
+            return edge;
+        }
+    }
+    return NULL;
+}
+
 Edge_t get_edge_from_vertexes(Graph_t _graph, char* begin_vertex, char *ending_vertex){
     AdjList_t adj_list = NULL;
     List_t edge_list = NULL;
@@ -225,7 +245,6 @@ void dfs(Graph_t _graph, Graph_t _agm_graph, HashTable_t vertex_table, ListNode_
         edge = get_list_info(node);
         to_change_edge = get_edge_from_vertexes(_graph, get_edge_begin_vertex_name(edge), get_edge_end_vertex_name(edge));
         set_edge_vm(to_change_edge, get_edge_vm(edge)*f);
-        //set_edge_vm(to_change_edge_copy, get_edge_vm(edge)*f);
 
         next_adj_node = get_graph_node(_agm_graph, get_edge_end_vertex_name(edge));
         if(f+f_in < 1)
@@ -257,6 +276,10 @@ List_t dijkstra(Graph_t _graph, Vertex_t begin, Vertex_t end, double *total_dist
         double *previous_dist = (double *) get_info_from_key(distance, name_begin);
         for(Node_t aux = get_list_first(get_graph_edges(adj_list)); aux != NULL; aux = get_list_next(aux)){
             Edge_t edge = get_list_info(aux);
+            if(get_edge_state(edge)){
+                continue;
+            }
+
             char *id_aux = get_edge_end_vertex_name(edge); 
             double *dist = get_info_from_key(distance, id_aux);
 
@@ -316,11 +339,13 @@ List_t dijkstra(Graph_t _graph, Vertex_t begin, Vertex_t end, double *total_dist
         insert_list(path, path_aux);
         name_end = get_info_from_key(previous, name_end);
     }
-    delete_hash_table(distance, 0);
-    delete_hash_table(previous, 0);
+    delete_hash_table(distance, 1);
+    delete_hash_table(previous, 1);
     remove_list(remaining, NULL);
 
     List_t inverted_path = reverse_linked_list(path);
+
+    remove_list(path, NULL);
 
     return inverted_path;
 }

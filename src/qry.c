@@ -13,7 +13,7 @@
 void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
     char aux[5];
     double x, y, w, h, f, limiar;
-    char cep[200], face;
+    char cep[200], face, cmc[200], cmr[200];
     int num;
     Point_t o_point = NULL;
     open_svg(qrySVGFile);
@@ -41,9 +41,8 @@ void qry_treat(City_t city, FILE *qryFile, FILE *qrySVGFile, FILE *qryTXTFile){
             cx(city, limiar, qrySVGFile, qryTXTFile);
         }
         if(strcmp(aux, "p?") == 0){
-            fscanf(qryFile, "%lf", &limiar);
-            fscanf(qryFile, "%s %s %d", cep, &face, &num);
-            p_i(city, o_point, cep, face, num, qrySVGFile, qryTXTFile);
+            fscanf(qryFile, "%s %s %d %s %s", cep, &face, &num, cmc, cmr);
+            p_i(city, o_point, cep, face, num, cmc, cmr, qrySVGFile, qryTXTFile);
         }
     }
 

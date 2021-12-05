@@ -11,6 +11,6 @@ void rv(City_t _city, double x, double y, double w, double h, double f, FILE *qr
 
 void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile);
 
-void p_i(City_t _city, Point_t start_point, char *cep, char face, int num, FILE *svgFile, FILE *txtFile);
+void p_i(City_t _city, Point_t start_point, char *cep, char face, int num, char *cmc, char *cmr, FILE *svgFile, FILE *txtFile);
 
 #endif

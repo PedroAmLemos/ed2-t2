@@ -232,9 +232,11 @@ void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile){
                 insert_list(edges, get_list_info(edge_node));
             }
             else{
+                set_edge_state(get_list_info(edge_node), 1);
                 begin = get_graph_adj_list_vertex(streets_graph, get_edge_begin_vertex_name(get_list_info(edge_node)));
                 end = get_graph_adj_list_vertex(streets_graph, get_edge_end_vertex_name(get_list_info(edge_node)));
                 print_thicker_line(get_vertex_x(begin), get_vertex_y(begin), get_vertex_x(end), get_vertex_y(end), "red", qrySVGFile);
+                // change edge status to CLOSED
             }
         }
     }
@@ -272,7 +274,7 @@ void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile){
     remove_list(sub_graphs, union_find_remove_aux);
 }
 
-void p_i(City_t _city, Point_t start_point, char *cep, char face, int num, FILE *svgFile, FILE *txtFile){
+void p_i(City_t _city, Point_t start_point, char *cep, char face, int num, char *cmc, char *cmr, FILE *svgFile, FILE *txtFile){
     Graph_t graph = get_street_graph(_city);
     Point_t end_point = arroba_o_int(_city, cep, face, num, svgFile, 0);
 
@@ -282,8 +284,7 @@ void p_i(City_t _city, Point_t start_point, char *cep, char face, int num, FILE 
 
     Vertex_t start = get_closest_vertex(graph, start_point);
     Vertex_t end = get_closest_vertex(graph, end_point);
-    printf("%s\n", get_vertex_name(start));
-    printf("%s\n", get_vertex_name(end));
+    print_circle(get_vertex_x(end), get_vertex_y(end), 10, "red", "red", "1px", svgFile);
 
     if(start == NULL){
         return;
@@ -295,14 +296,18 @@ void p_i(City_t _city, Point_t start_point, char *cep, char face, int num, FILE 
 
     double total_dist = 0;
     List_t shortest_path = dijkstra(graph, start, end, &total_dist, get_edge_cmp);
+    Graph_t shortest_path_graph = create_dijkstra_graph(graph, shortest_path);
+    print_dijkstra_graph(shortest_path_graph, cmc, svgFile, 0);
+
     total_dist = 0;
     List_t quickest_path = dijkstra(graph, start, end, &total_dist, get_edge_vm);
+    Graph_t quickest_path_graph = create_dijkstra_graph(graph, quickest_path);
+    print_dijkstra_graph(quickest_path_graph, cmr, svgFile, 1);
 
-    for(ListNode_t node = get_list_first(shortest_path); node != NULL; node = get_list_next(node)){
-        printf("%s\n", (char*) get_list_info(node));
-    }
-    for(ListNode_t node = get_list_first(quickest_path); node != NULL; node = get_list_next(node)){
-        printf("%s\n", (char*) get_list_info(node));
-    }
+
+    remove_list(shortest_path, free);
+    remove_list(quickest_path, free);
+    delete_graph_lists(shortest_path_graph);
+    delete_graph_lists(quickest_path_graph);
     free(end_point);
 }

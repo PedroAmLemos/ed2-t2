@@ -50,5 +50,12 @@ void union_find_remove_aux(Graph_t _graph);
 void dfs(Graph_t _graph, Graph_t _agm_graph, HashTable_t vertex_table, ListNode_t adj_list_node, int cd, double f_in, double f);
 
 List_t dijkstra(Graph_t _graph, Vertex_t begin, Vertex_t end, double *total_dist, double get_weight(Edge_t _edge));
+
+Edge_t get_edge_from_vertexes(Graph_t _graph, char* begin_vertex, char *ending_vertex);
+
+Edge_t get_edge_from_vertexes_adj_list(AdjList_t _adj_list, char *ending_vertex);
+
+void delete_graph_lists(Graph_t _graph);
+
 #endif
 

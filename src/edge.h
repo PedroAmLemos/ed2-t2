@@ -30,4 +30,8 @@ Edge_t create_edge_copy(Edge_t _edge);
 void print_edge_txt(Edge_t _edge, FILE *txtFILE);
 
 void set_edge_vm(Edge_t _edge, double new_vm);
+
+void set_edge_state(Edge_t _edge, int state);
+
+int get_edge_state(Edge_t _edge);
 #endif

@@ -71,4 +71,6 @@ void print_thick_vertex(Vertex_t _vertex, FILE* svg_file);
 
 void print_thicker_line(double x1, double y1, double x2, double y2, char stroke[], FILE *svgFile);
 
+void print_dijkstra_graph(Graph_t _graph, char *color, FILE *svgFile, int flag);
+
 #endif //SVG_H_

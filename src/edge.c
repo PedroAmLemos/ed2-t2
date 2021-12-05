@@ -14,6 +14,7 @@ typedef struct Edge{
     char lesq[100];
     double cmp;
     double vm;
+    int is_closed;
 }Edge;
 
 Edge_t create_edge(char* name, char* begin_vertex_name, char* end_vertex_name, char* ldir, char* lesq, double cmp, double vm){
@@ -25,6 +26,7 @@ Edge_t create_edge(char* name, char* begin_vertex_name, char* end_vertex_name, c
     strcpy(edge->lesq, lesq);
     edge->cmp = cmp;
     edge->vm = vm;
+    edge->is_closed = 0;
     return edge;
 }
 
@@ -107,4 +109,12 @@ void set_edge_vm(Edge_t _edge, double new_vm){
     edge->vm = new_vm;
 }
 
+void set_edge_state(Edge_t _edge, int state){
+    Edge *edge = (Edge*) _edge;
+    edge->is_closed = state;
+}
+int get_edge_state(Edge_t _edge){
+    Edge *edge = (Edge*) _edge;
+    return edge->is_closed;
+}
 

@@ -1,6 +1,9 @@
 #include <math.h>
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "graph.h"
+#include "linked_list.h"
 #include "qry_utils.h"
 #include "vertex.h"
 
@@ -38,4 +41,36 @@ Vertex_t get_closest_vertex(Graph_t _graph, Point_t point){
     }
     
     return smaller_dist_vertex;
+}
+
+Graph_t create_dijkstra_graph(Graph_t _graph, List_t path){
+    char *begin_vertex_name, *end_vertex_name;
+    int index = 0;
+    AdjList_t adj_list = NULL;
+    Vertex_t vertex = NULL;
+    Edge_t edge = NULL;
+
+    Graph_t graph = create_graph();
+
+    for(ListNode_t node = get_list_first(path); node != NULL; node = get_list_next(node)){
+        begin_vertex_name = get_list_info(node);
+        adj_list = get_graph_adj_list(_graph, begin_vertex_name);
+        vertex = get_graph_vertex(adj_list);
+
+        add_graph_vertex(graph, vertex);
+
+        index ++;
+        if(index == get_list_size(path)){
+            break;
+        }
+        end_vertex_name = get_list_info(get_list_next(node));
+        edge = get_edge_from_vertexes_adj_list(adj_list, end_vertex_name);
+        if(edge == NULL){
+            printf("ERRO ____ ARESTA NULA\n");
+        }else{
+            add_graph_edge(graph, edge);
+        }
+    }
+    return graph;
+
 }

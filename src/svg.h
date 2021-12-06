@@ -61,22 +61,31 @@ void print_rectangle_dashed(double x, double y, double w, double h, FILE *svgFil
  */
 void print_rectangle(double x, double y, double w, double h, char *fill, char *stroke, FILE *svgFile);
 
+// Imprime um grafo passado em um svg
 void print_graph(Graph_t _graph, FILE *svgFile);
 
+// Imprime um vértice em um svg passado
 void print_vertex(Vertex_t _vertex, char* vertex_color, FILE* svg_file);
 
+// Imprime a árvore geradora minima em um svg passado
 void print_graph_agm(Graph_t _graph, FILE *svgFile);
 
+// Imprime um vertice grosso no svg
 void print_thick_vertex(Vertex_t _vertex, FILE* svg_file);
 
+// Imprime uma linha mais grossa no svg
 void print_thicker_line(double x1, double y1, double x2, double y2, char stroke[], FILE *svgFile);
 
+// Imprime uma linha grossa no svg
 void print_thick_line(double x1, double y1, double x2, double y2, char stroke[], FILE *svgFile);
 
+// Imprime um grafo de dijkstra no svg
 void print_dijkstra_graph(Graph_t _graph, char *color, FILE *svgFile, int flag);
 
+// Imprime uma linha pontilhada no svg
 void print_dashed_line(double x1, double y1, double x2, double y2, char *stroke, FILE *svgFile);
 
+// Imprime a animação do trajeto passado no svg
 void print_animated_circle(double x1, double y1, List_t path,  FILE *svgFile, int flag);
 
 #endif //SVG_H_

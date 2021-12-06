@@ -250,13 +250,21 @@ void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile){
     Vertex_t vertex = NULL;
     AdjList_t adj_list = NULL;
     int index = 0;
-    char colors[][45] = {"blue", "green", "yellow", "pink", "purple", "grey", "plum", "seagreen", "indigo", "peru", 
-                        "aliceblue", "aquamarine", "azure", "beige", "bisque", "blanchedalmond", "blueviolet", "brown", "coral",
-                        "cadetblue", "chartreuse", "chocolate", "cornflowerblue", "cornsilk", "crimson", "cyan", "darkblue", "darkcyan", "darkgoldenrod", 
-                        "darkgray", "darkgreen", "darkkhaki", "darkmagenta", "darkolivergreen", "darkorange", "darkorchid", "darkred", "darksalmon", "darkseagreen", 
-                        "darkslateblue", "darkslategray", "darkturquoise", "darkviolet", "deeppink", "deepskyblue", "dimgray", "dodgerblue", "firebrick", "floralwhite", 
-                        "forestgreen", "fuchsia", "gainsboro", "ghostwhite", "gold", "goldenrod", "gray", "goldenrod", "greenyellow", "honeydew"};
-                        //"hotpinkl", "indigo", "ivory", 		"khaki",		"lavender"	"lavenderblush"	"lawngreen"		"lemonchiffon"		"lightblue"	"lightcoral"	"lightcyan"		"lightgoldenrodyellow"		"lightgray"	"lightgreen"	"lightgrey"		"lightpink"		"lightsalmon"	"lightseagreen"	"lightskyblue"		"lightslategray"("Hex3")		"lightslategrey"("Hex3")	"lightsteelblue"	"lightyellow"				"limegreen"	"linen"	"magenta"		"maroon"("16")		"mediumaquamarine"	"mediumblue"	"mediumorchid"		"mediumpurple"		"mediumseagreen"	"mediumslateblue"	"mediumspringgreen"		"mediumturquoise"		"mediumvioletred"	"midnightblue"	"mintcream"		"mistyrose"		"moccasin"	"navajowhite"	"navy"("16")		"oldlace"		"olive"("16")	"olivedrab"	"orange"		"orangered"		"orchid"	"palegoldenrod"	"palegreen"		"paleturquoise"		"palevioletred"	"papayawhip"	"peachpuff"		"peru"		"pink"	"plum"	"powderblue"		"purple"("16")			"rosybrown"	"royalblue"		"saddlebrown"		"salmon"	"sandybrown"	"seagreen"		"seashell"		"sienna"	"silver"("16")	"skyblue"		"slateblue"		"slategray"	"slategrey"	"snow"		"springgreen"		"steelblue"	"tan"	"teal"("16")		"thistle"		"tomato"	"turquoise"	"violet"		"wheat"	"whitesmoke" "yellowgreen"
+    char colors[][134] = {"blue", "green", "yellow", "pink", "purple", "grey", "plum", "seagreen", "indigo", "peru", 
+                        "aliceblue", "aquamarine", "azure", "beige", "bisque", "blanchedalmond", "blueviolet", "brown", "coral", "cadetblue",
+                        "chartreuse", "chocolate", "cornflowerblue", "crimson", "cyan", "darkblue", "darkcyan", "darkgoldenrod", "darkgray", "yellowgreen",
+                        "darkgreen", "darkkhaki", "darkmagenta", "darkolivergreen", "darkorange", "darkorchid", "darkred", "darksalmon", "darkseagreen", "darkslateblue",
+                        "darkslategray", "darkturquoise", "darkviolet", "deeppink", "deepskyblue", "dimgray", "dodgerblue", "firebrick", "floralwhite", "lightsteelblue",
+                        "forestgreen", "fuchsia", "gainsboro", "ghostwhite", "gold", "goldenrod", "gray", "goldenrod", "greenyellow", "honeydew",
+                        "hotpinkl", "indigo", "ivory", "khaki", "lavender", "lavenderblush", "lawngreen", "lemonchiffon", "lightblue", "lightcoral", 
+                        "lightcyan", "lightgray", "lightgreen", "lightgrey", "lightpink", "lightsalmon", "lightseagreen", "lightskyblue", "lightslategray", 
+                        "lightyellow", "limegreen", "linen", "magenta", "mediumaquamarine", "mediumblue", "mediumorchid", "mediumpurple", "mediumseagreen", "mediumslateblue",
+                        "mediumspringgreen", "mediumturquoise", "mediumvioletred", "midnightblue", "mintcream", "mistyrose", "moccasin", "navajowhite", "oldlace", "olivedrab",
+                        "orange", "orangered", "orchid", "palegoldenrod", "palegreen", "paleturquoise", "palevioletred", "papayawhip", "peachpuff", "peru",
+                        "pink", "plum", "powderblue", "rosybrown", "royalblue", "saddlebrown", "salmon", "sandybrown", "seagreen", "seashell",
+                        "sienna", "skyblue", "slateblue", "slategray", "slategrey", "snow", "springgreen", "steelblue", "tan", "thistle", 
+                        "tomato", "turquoise", "violet", "wheat", "whitesmoke"};
+
     for(ListNode_t node = get_list_first(sub_graphs); node != NULL; node = get_list_next(node)){
         graph = get_list_info(node);
         fprintf(qryTXTFile, "\nRegião: \n");
@@ -264,10 +272,10 @@ void cx(City_t city, double limiar, FILE *qrySVGFile, FILE *qryTXTFile){
             adj_list = get_list_info(node_aux);
             vertex = get_graph_vertex(adj_list);
             fprintf(qryTXTFile, "VERTICE >> ID: %s X: %lf Y: %lf\n", get_vertex_name(vertex), get_vertex_x(vertex), get_vertex_y(vertex));
-            print_circle(get_vertex_x(vertex), get_vertex_y(vertex), 15, colors[index % 46], colors[index], "0", qrySVGFile);
+            print_circle(get_vertex_x(vertex), get_vertex_y(vertex), 15, colors[index % 134], colors[index % 134], "0", qrySVGFile);
         }
         index++;
-        fprintf(qryTXTFile, "Fim da região: \n\n");
+        fprintf(qryTXTFile, "Fim da região \n\n");
     }
     remove_list(edges, NULL);
     delete_full_graph(streets_graph_copy);
@@ -284,7 +292,6 @@ void p_i(City_t _city, Point_t start_point, char *cep, char face, int num, char 
 
     Vertex_t start = get_closest_vertex(graph, start_point);
     Vertex_t end = get_closest_vertex(graph, end_point);
-    print_circle(get_vertex_x(end), get_vertex_y(end), 10, "red", "red", "1px", svgFile);
 
     if(start == NULL){
         return;
@@ -292,7 +299,8 @@ void p_i(City_t _city, Point_t start_point, char *cep, char face, int num, char 
     if(end == NULL){
         return;
     }
-
+    print_line(get_point_x(end_point), get_point_y(end_point), get_point_x(end_point), 0, "black", svgFile);
+    fprintf(svgFile, "\t<text x=\"%.2f\" y=\"10\">dest: CEP: %s FACE: %c NUM: %d</text>\n", get_point_x(end_point), cep, face, num);
 
     double total_dist = 0;
     List_t shortest_path = dijkstra(graph, start, end, &total_dist, get_edge_cmp);
@@ -302,14 +310,21 @@ void p_i(City_t _city, Point_t start_point, char *cep, char face, int num, char 
 
     if(shortest_path == NULL || quickest_path == NULL){
         print_dashed_line(get_point_x(start_point), get_point_y(start_point), get_point_x(end_point), get_point_y(end_point), "red", svgFile);
+        fprintf(txtFile, "DESTINO INACESSÍVEL\n");
         return;
     }
 
     Graph_t shortest_path_graph = create_dijkstra_graph(graph, shortest_path);
     print_dijkstra_graph(shortest_path_graph, cmc, svgFile, 0);
+    fprintf(txtFile, "Caminho mais curto: \n");
+    print_dijkstra_path_txt(shortest_path_graph, txtFile);
+    print_dijkstra_path_svg(shortest_path_graph, svgFile, 0);
 
     Graph_t quickest_path_graph = create_dijkstra_graph(graph, quickest_path);
     print_dijkstra_graph(quickest_path_graph, cmr, svgFile, 1);
+    fprintf(txtFile, "Caminho mais rapido: \n");
+    print_dijkstra_path_txt(quickest_path_graph, txtFile);
+    print_dijkstra_path_svg(quickest_path_graph, svgFile, 1);
 
     remove_list(shortest_path, free);
     remove_list(quickest_path, free);

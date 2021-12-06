@@ -4,7 +4,9 @@
 #include <stdlib.h>
 #include "graph.h"
 #include "linked_list.h"
+#include "point.h"
 #include "qry_utils.h"
+#include "svg.h"
 #include "vertex.h"
 
 int is_name_in_list(List_t _list, char *name){
@@ -74,3 +76,44 @@ Graph_t create_dijkstra_graph(Graph_t _graph, List_t path){
     return graph;
 
 }
+
+
+void print_dijkstra_path_txt(Graph_t _graph, FILE *txtFile){
+    AdjList_t adj_list = NULL;
+    Edge_t edge = NULL;
+    List_t edge_list = NULL;
+    int index = 0;
+
+    for(List_t node = get_list_first(_graph); node != NULL; node = get_list_next(node)){
+        index ++;
+        if(index == get_list_size(_graph)){
+            return;
+        }
+        adj_list = get_list_info(node);
+        edge_list = get_graph_edges(adj_list);
+        edge = get_list_info(get_list_first(edge_list));
+        fprintf(txtFile, "Siga %.2lf metros na rua %s\n", get_edge_vm(edge), get_edge_name(edge));
+    }
+}
+
+void print_dijkstra_path_svg(Graph_t _graph, FILE *svgFile, int flag){
+    List_t svg_path_list = create_list();
+    AdjList_t adj_list = NULL;
+    Vertex_t vertex = NULL;
+    int index = 0;
+    double x1, y1;
+    for(ListNode_t node = get_list_first(_graph); node != NULL; node = get_list_next(node)){
+        adj_list = get_list_info(node);
+        vertex = get_graph_vertex(adj_list);
+        if(index == 0){
+            x1 = get_vertex_x(vertex);
+            y1 = get_vertex_y(vertex);
+        }
+        Point_t point = create_point(get_vertex_x(vertex), get_vertex_y(vertex));
+        insert_list(svg_path_list, point);
+        index++;
+    }
+    print_animated_circle(x1, y1, svg_path_list, svgFile, flag);
+    remove_list(svg_path_list, free);
+}
+

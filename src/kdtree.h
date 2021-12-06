@@ -50,7 +50,9 @@ double* get_kd_min(KDTreeNode_t _root);
 // Retorna o maior ponto na árvore
 double* get_kd_max(KDTreeNode_t _root);
 
+// Retorna uma lista com as informações dentro de um retangulo passado
 List_t get_info_inside_kd(KDTree_t _tree, double x, double y, double w, double h);
 
+// Altera o valor de result para o de um bloco na árvore com o cep passado
 void get_block_from_cep(KDTreeNode_t _root, char *cep, Block_t *result);
 #endif

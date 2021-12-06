@@ -56,9 +56,15 @@ int get_list_size(List_t _list);
  */
 void get_points_inside(List_t _list, List_t storage, double x, double y, double w, double h);
 
+// Retorna o node do index passado
 ListNode_t get_list_index_node(List_t _list, int index);
 
+// Troca as infos de dois nodes passados
 void swap_list_info(ListNode_t _a, ListNode_t _b);
+
+// Retorna se uma string está presente na lista
 int is_string_in_list(List_t _list, char *text);
+
+// Retorna uma lista com os nodes invertidos
 List_t reverse_linked_list(List_t _list);
 #endif // LINKED_LIST_H_

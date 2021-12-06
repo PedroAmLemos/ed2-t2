@@ -59,42 +59,42 @@ cx
 
 Região: 
 VERTICE >> ID: beS.SE X: 95.000000 Y: -30.000000
-Fim da região: 
+Fim da região 
 
 
 Região: 
 VERTICE >> ID: beS.SO X: 1445.000000 Y: -30.000000
-Fim da região: 
+Fim da região 
 
 
 Região: 
 VERTICE >> ID: beN.NE X: 95.000000 Y: 1160.000000
-Fim da região: 
+Fim da região 
 
 
 Região: 
 VERTICE >> ID: beN.NO X: 1445.000000 Y: 1160.000000
-Fim da região: 
+Fim da região 
 
 
 Região: 
 VERTICE >> ID: beL.SE X: -30.000000 Y: 95.000000
-Fim da região: 
+Fim da região 
 
 
 Região: 
 VERTICE >> ID: beL.NE X: -30.000000 Y: 1045.000000
-Fim da região: 
+Fim da região 
 
 
 Região: 
 VERTICE >> ID: (b0|5,5)(b0|4,5).0 X: 766.250000 Y: 518.750000
-Fim da região: 
+Fim da região 
 
 
 Região: 
 VERTICE >> ID: cz1.c X: 7.500000 Y: 1105.000000
-Fim da região: 
+Fim da região 
 
 
 Região: 
@@ -531,12 +531,30 @@ VERTICE >> ID: rot3.S X: 1587.500000 Y: 1045.000000
 VERTICE >> ID: cz1.g X: 50.000000 Y: 1062.500000
 VERTICE >> ID: cz1.a X: 7.500000 Y: 1070.000000
 VERTICE >> ID: cz1.f X: 15.000000 Y: 1112.500000
-Fim da região: 
+Fim da região 
 
 
 Região: 
 VERTICE >> ID: cz1.h X: 50.000000 Y: 1112.500000
-Fim da região: 
+Fim da região 
 
 @o?
 
+Caminho mais curto: 
+Siga 4.11 metros na rua Yerba_Buena_Ave
+Siga 7.33 metros na rua Young_Ct
+Siga 7.33 metros na rua Young_Ct
+Siga 8.25 metros na rua Yerba_Buena_Ln
+Siga 8.25 metros na rua Yerba_Buena_Ln
+Siga 8.25 metros na rua Yerba_Buena_Ln
+Siga 8.25 metros na rua Yerba_Buena_Ln
+Siga 8.25 metros na rua Yerba_Buena_Ln
+Caminho mais rapido: 
+Siga 4.11 metros na rua Yerba_Buena_Ave
+Siga 7.33 metros na rua Young_Ct
+Siga 7.33 metros na rua Young_Ct
+Siga 8.25 metros na rua Yerba_Buena_Ln
+Siga 8.25 metros na rua Yerba_Buena_Ln
+Siga 8.25 metros na rua Yerba_Buena_Ln
+Siga 8.25 metros na rua Yerba_Buena_Ln
+Siga 8.25 metros na rua Yerba_Buena_Ln

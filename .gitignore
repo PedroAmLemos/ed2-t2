@@ -11,6 +11,7 @@
 /cmake-build-debug-wsl/
 /src/.clangd
 src/t2
+/tests
 
 .cache/clangd/index
 vgcore.*

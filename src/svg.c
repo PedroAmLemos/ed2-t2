@@ -33,7 +33,7 @@ void print_thick_line(double x1, double y1, double x2, double y2, char stroke[],
 }
 
 void print_thicker_line(double x1, double y1, double x2, double y2, char stroke[], FILE *svgFile){
-    fprintf(svgFile, "\t<line x1=\"%.2f\" y1=\"%.2f\" x2=\"%.2f\" y2=\"%.2f\" stroke=\"%s\" opacity=\"1\" stroke-width=\"8px\"/>\n",
+    fprintf(svgFile, "\t<line x1=\"%.2f\" y1=\"%.2f\" x2=\"%.2f\" y2=\"%.2f\" stroke=\"%s\" opacity=\"1\" stroke-width=\"12px\"/>\n",
             x1, y1, x2, y2, stroke);
 }
 
@@ -47,6 +47,11 @@ void print_circle(double cx, double cy, double r, char stroke[], char fill[], ch
 
 void print_rectangle_dashed(double x, double y, double w, double h, FILE *svgFile){
     fprintf(svgFile,"\t<rect x=\"%f\" y=\"%f\" width=\"%f\" height=\"%f\" opacity=\"1\" fill=\"none\" stroke=\"red\" stroke-width=\"10px\" stroke-dasharray=\"10\"/>\n", x, y, w, h);
+}
+
+void print_dashed_line(double x1, double y1, double x2, double y2, char *stroke, FILE *svgFile){
+    fprintf(svgFile, "\t<line x1=\"%.2f\" y1=\"%.2f\" x2=\"%.2f\" y2=\"%.2f\" stroke=\"%s\" opacity=\"1\"stroke-dasharray=\"10\"/>\n",
+            x1, y1, x2, y2, stroke);
 }
 
 void print_rectangle(double x, double y, double w, double h, char *fill, char *stroke, FILE *svgFile){
@@ -95,7 +100,7 @@ void print_graph_agm(Graph_t _graph, FILE *svgFile){
         for(ListNode_t edge_node = get_list_first(edge_list); edge_node != NULL; edge_node = get_list_next(edge_node)){
             edge = get_list_info(edge_node);
             ending_vertex = get_graph_adj_list_vertex(_graph, get_edge_end_vertex_name(edge));
-            print_thicker_line(get_vertex_x(vertex), get_vertex_y(vertex), get_vertex_x(ending_vertex), get_vertex_y(ending_vertex), "blue", svgFile);
+            print_thicker_line(get_vertex_x(vertex), get_vertex_y(vertex), get_vertex_x(ending_vertex), get_vertex_y(ending_vertex), "lightgreen", svgFile);
         }
     }
 
@@ -115,9 +120,9 @@ void print_dijkstra_graph(Graph_t _graph, char *color, FILE *svgFile, int flag){
         vertex = get_graph_vertex(adj_list);
         ending_vertex = get_graph_vertex(get_list_info(get_list_next(node)));
         if(flag)
-            print_thicker_line(get_vertex_x(vertex)+2, get_vertex_y(vertex)+2, get_vertex_x(ending_vertex)+2, get_vertex_y(ending_vertex)+2, color, svgFile);
+            print_thick_line(get_vertex_x(vertex)+4, get_vertex_y(vertex)+4, get_vertex_x(ending_vertex)+4, get_vertex_y(ending_vertex)+4, color, svgFile);
         else
-            print_thicker_line(get_vertex_x(vertex), get_vertex_y(vertex), get_vertex_x(ending_vertex), get_vertex_y(ending_vertex), color, svgFile);
+            print_thick_line(get_vertex_x(vertex), get_vertex_y(vertex), get_vertex_x(ending_vertex), get_vertex_y(ending_vertex), color, svgFile);
     }
     
 }

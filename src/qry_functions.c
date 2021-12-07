@@ -188,7 +188,7 @@ void rv(City_t _city, double x, double y, double w, double h, double f, FILE *qr
     //print_thick_vertex(get_graph_vertex(get_list_info(get_list_first(agm))), qrySVGFile);
     vertex = get_graph_vertex(get_list_info(get_list_first(agm)));
     print_line(get_vertex_x(vertex), get_vertex_y(vertex), get_vertex_x(vertex), 0, "black", qrySVGFile);
-    fprintf(qrySVGFile, "\t<text x=\"%.2f\" y=\"0\">rv f=%lf</text>\n", get_vertex_x(vertex), f);
+    fprintf(qrySVGFile, "\t<text x=\"%.2f\" y=\"10\">rv f=%lf</text>\n", get_vertex_x(vertex), f);
 
     List_t edges_aux = create_list();
     for(ListNode_t node = get_list_first(agm); node != NULL; node = get_list_next(node)){
